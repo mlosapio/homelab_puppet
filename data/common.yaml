@@ -1,0 +1,119 @@
+classes:
+  - ssh
+  - profile::fw
+  - ntp
+  - rsyslog::client
+  - network
+  - network::hiera
+  - hosts
+  - sysctl::base
+  - dnsclient
+  - yum
+
+rsyslog::client::log_local: true
+rsyslog::client::log_remote: false
+
+sysctl::base::values:
+  net.ipv6.conf.all.disable_ipv6:
+    value: '1'
+  net.ipv6.conf.default.disable_ipv6:
+    value: '1'
+
+network::if_dynamic:
+    'ens192':
+      ensure: 'up'
+      dhcp_hostname: "%{fqdn}"
+      defroute: 'yes'
+
+ntp::servers:
+    - 'time.nist.gov'
+    - 'time-d-b.nist.gov'
+ntp::restrict:
+    - '127.0.0.1'
+
+
+ssh::sshd_config_use_dns               : 'yes'
+ssh::sshd_password_authentication      : 'yes'
+ssh::ssh_key_import: false
+ssh::sshd_config_hostkey:
+    - /etc/ssh/ssh_host_rsa_key
+    - /etc/ssh/ssh_host_ed25519_key
+ssh::ssh_config_forward_x11:           'no'
+ssh::ssh_config_forward_agent:         'no'
+ssh::sshd_config_maxauthtries:         3
+ssh::sshd_config_permitemptypasswords: 'no'
+ssh::sshd_config_print_lastlog:        'yes'
+ssh::sshd_allow_tcp_forwarding:        'no'
+ssh::sshd_x11_forwarding:              'no'
+ssh::permit_root_login:                'no'
+ssh::purge_keys:                       'no'
+ssh::ssh_config_ciphers:
+  - 'aes128-ctr'
+  - 'aes192-ctr'
+  - 'aes256-ctr'
+  - 'aes128-cbc'
+  - '3des-cbc'
+  - 'aes192-cbc'
+  - 'aes256-cbc'
+ssh::ssh_config_macs:
+  - 'hmac-sha2-512'
+  - 'hmac-sha2-256'
+  - 'hmac-sha1'
+  - 'hmac-sha1-etm@openssh.com'
+  - 'hmac-sha2-256-etm@openssh.com'
+  - 'hmac-sha2-512-etm@openssh.com'
+ssh::sshd_ignoreuserknownhosts:        'yes'
+ssh::ssh_config_global_known_hosts_list:
+  - '/var/lib/sss/pubconf/known_hosts'
+ssh::sshd_pubkeyauthentication: 'yes'
+ssh::ssh_config_proxy_command: '/usr/bin/sss_ssh_knownhostsproxy -p %p %h'
+ssh::sshd_use_pam: 'yes'
+ssh::sshd_authorized_keys_command: '/usr/bin/sss_ssh_authorizedkeys'
+ssh::sshd_config_challenge_resp_auth: 'yes'
+ssh::sshd_authorized_keys_command_user: 'nobody'
+ssh::sshd_gssapiauthentication: 'yes'
+
+ssh::keys:
+  root_for_mlosapio:
+    ensure: present
+    user:   root
+    type:   rsa
+    key:    'AAAAB3NzaC1yc2EAAAADAQABAAABAQCucHMknMIgGEGTwkD8ouhczGC+TK42Y7MmohvDqzvJqT0jdwgd1xjlWRa+q3gvaqqKwYaMBGSpFpSe7gspSY+c+xzMTupi4BVQdKh0TLQFzrbrB7a/jmvOj3MxmUuH8eHBfsadq2oU8znp0tUsOpiUhUUpMBxpchcS2499mh0Y1e5uwE+3YJ6bXNUEZOJU1sL7sbV16BZ40GTEsZmZ3MJye0PW/1Aawa//qa65hJ8zo87OtTemkwaVGIjNKGiPFKGK/AP5E8vNdXySDo5hfMvjW95CvqbrEdy6m84/XoZ3o1eS8QVdFqj0aVTkv/koZKA51asKJNhkITtT4MsL8YVF'
+
+firewall_rules_common:
+  allow_incoming_ICMP:
+    name: "000 Allow all incoming pings"
+    chain: INPUT
+    proto: icmp
+    action: accept
+  allow_loopback:
+    name: "001 Allow all traffic on local loopback interface"
+    chain: INPUT
+    iniface: lo
+    proto: all
+    action: accept
+  allow_established_in:
+    name: "003 accept responses to outbound connections"
+    chain: INPUT
+    proto: all
+    state: ['RELATED', 'ESTABLISHED']
+    action: accept
+  allow_ssh:
+    name: "005 Allow SSH"
+    chain: INPUT
+    proto: tcp
+    dport: ssh
+    action: accept
+  reject_everything_else:
+    name: "999 reject"
+    chain: INPUT
+    proto: all
+    action: drop
+
+dnsclient::nameservers:
+    - 10.8.0.30
+dnsclient::domain: 'losap.local'
+
+yum::manage_os_default_repos: true
+yum::install:
+  - 'bind-utils'
