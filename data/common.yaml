@@ -9,6 +9,7 @@ classes:
   - sysctl::base
   - dnsclient
   - yum
+  - yum::install
   - cron
   - sudo
   - sudo::configs
@@ -140,7 +141,10 @@ dnsclient::domain: 'losap.local'
 
 yum::manage_os_default_repos: true
 yum::install:
-  - 'bind-utils'
+  'bind-utils':
+    ensure: 'present'
+  'NetworkManager':
+    ensure: 'absent'
 
 cron::job:
   'yum_update':
