@@ -143,6 +143,9 @@ yum::manage_os_default_repos: true
 
 packages::remove:
   - NetworkManager
+  - NetworkManager-wifi
+  - NetworkManager-team
+  - NetworkManager-tui
 
 packages::install:
   - bind-utils
