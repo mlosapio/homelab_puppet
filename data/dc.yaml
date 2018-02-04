@@ -52,7 +52,7 @@ firewall_rules_specific:
     name: "205 Allow krb5 UDP"
     chain: INPUT
     proto: tcp
-    dport: udp
+    dport: 464
     source: '10.0.0.0/8'
     action: accept
   allow_bind_tcp:
