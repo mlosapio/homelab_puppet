@@ -5,74 +5,74 @@ firewall_rules_specific:
     chain: INPUT
     proto: tcp
     dport: 636
-    source: '10.0.0.0/8',
+    source: '10.0.0.0/8'
     action: accept
   allow_ldap:
     name: "201 Allow LDAP"
     chain: INPUT
     proto: tcp
     dport: 389
-    source: '10.0.0.0/8',
+    source: '10.0.0.0/8'
     action: accept
   allow_http:
     name: "202 Allow HTTP"
     chain: INPUT
     proto: tcp
     dport: 80
-    source: '10.0.0.0/8',
+    source: '10.0.0.0/8'
     action: accept
   allow_https:
     name: "203 Allow HTTPS"
     chain: INPUT
     proto: tcp
     dport: 443
-    source: '10.0.0.0/8',
+    source: '10.0.0.0/8'
     action: accept
   allow_kerberos1_tcp:
     name: "204 Allow krb5 TCP"
     chain: INPUT
     proto: tcp
     dport: 88
-    source: '10.0.0.0/8',
+    source: '10.0.0.0/8'
   allow_kerberos1_udp:
     name: "204 Allow krb5 UDP"
     chain: INPUT
     proto: udp
     dport: 88
-    source: '10.0.0.0/8',
+    source: '10.0.0.0/8'
     action: accept
   allow_kerberos2_tcp:
     name: "205 Allow krb5 TCP"
     chain: INPUT
     proto: tcp
     dport: 464
-    source: '10.0.0.0/8',
+    source: '10.0.0.0/8'
     action: accept
   allow_kerberos2_udp:
     name: "205 Allow krb5 UDP"
     chain: INPUT
     proto: tcp
     dport: udp
-    source: '10.0.0.0/8',
+    source: '10.0.0.0/8'
     action: accept
   allow_bind_tcp:
     name: "206 Allow bind TCP"
     chain: INPUT
     proto: tcp
     dport: 53
-    source: '10.0.0.0/8',
+    source: '10.0.0.0/8'
     action: accept
   allow_bind_udp:
     name: "206 Allow bind UDP"
     chain: INPUT
     proto: udp
     dport: 53
-    source: '10.0.0.0/8',
+    source: '10.0.0.0/8'
     action: accept
   allow_ntp:
     name: "206 Allow ntp"
     chain: INPUT
     proto: udp
     dport: 123
-    source: '10.0.0.0/8',
+    source: '10.0.0.0/8'
     action: accept
