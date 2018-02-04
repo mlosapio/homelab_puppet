@@ -42,7 +42,18 @@ ssh::sshd_authorized_keys_command: '/usr/bin/sss_ssh_authorizedkeys'
 ssh::sshd_authorized_keys_command_user: 'nobody'
 ssh::sshd_config_challenge_resp_auth: 'yes'
 ssh::sshd_config_banner: '/etc/banner'
-ssh::sshd_banner_content: '######## SECURE SYSTEM #######'
+ssh::sshd_banner_content: |
+ ********************************************************************
+ *                                                                  *
+ * This system is for the use of authorized users only.  Usage of   *
+ * this system may be monitored and recorded by system personnel.   *
+ *                                                                  *
+ * Anyone using this system expressly consents to such monitoring   *
+ * and is advised that if such monitoring reveals possible          *
+ * evidence of criminal activity, system personnel may provide the  *
+ * evidence from such monitoring to law enforcement officials.      *
+ *                                                                  *
+ ********************************************************************
 ssh::sshd_gssapiauthentication: 'yes'
 ssh::sshd_config_use_dns               : 'yes'
 ssh::sshd_config_hostkey:
