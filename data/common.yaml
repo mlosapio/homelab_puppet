@@ -10,6 +10,8 @@ classes:
   - dnsclient
   - yum
   - cron
+  - sudo
+  - sudo::configs
 
 rsyslog::client::log_local: true
 rsyslog::client::log_remote: false
@@ -138,3 +140,7 @@ cron::job:
     month:   '*'
     weekday: '*'
     user:    root
+
+sudo::configs:
+  'mlosapio':
+    'content' : 'ALL=(ALL)	NOPASSWD: ALL'
