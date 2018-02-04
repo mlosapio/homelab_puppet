@@ -9,7 +9,6 @@ classes:
   - sysctl::base
   - dnsclient
   - yum
-  - yum::install
   - cron
   - sudo
   - sudo::configs
