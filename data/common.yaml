@@ -32,22 +32,36 @@ ntp::servers:
 ntp::restrict:
     - '127.0.0.1'
 
+ssh::permit_root_login:                'no'
+ssh::purge_keys:                       'no'
 
+ssh::sshd_allow_tcp_forwarding:        'no'
+ssh::sshd_authorized_keys_command: '/usr/bin/sss_ssh_authorizedkeys'
+ssh::sshd_authorized_keys_command_user: 'nobody'
+ssh::sshd_config_challenge_resp_auth: 'yes'
+ssh::sshd_config_banner: 'yes'
+ssh::sshd_banner_content: '######## SECURE SYSTEM #######'
+ssh::sshd_gssapiauthentication: 'yes'
 ssh::sshd_config_use_dns               : 'yes'
-ssh::sshd_password_authentication      : 'yes'
-ssh::ssh_key_import: false
 ssh::sshd_config_hostkey:
     - /etc/ssh/ssh_host_rsa_key
     - /etc/ssh/ssh_host_ed25519_key
+    - /etc/ssh/ssh_host_ecdsa_key
 ssh::ssh_config_forward_x11:           'no'
 ssh::ssh_config_forward_agent:         'no'
 ssh::sshd_config_maxauthtries:         3
 ssh::sshd_config_permitemptypasswords: 'no'
 ssh::sshd_config_print_lastlog:        'yes'
-ssh::sshd_allow_tcp_forwarding:        'no'
+ssh::sshd_config_syslog_facility: 'AUTHPRIV'
+ssh::sshd_ignoreuserknownhosts:        'yes'
+ssh::sshd_gssapicleanupcredentials: 'yes'
+ssh::sshd_password_authentication      : 'yes'
+ssh::ssh_key_import: false
+ssh::sshd_use_pam: 'yes'
 ssh::sshd_x11_forwarding:              'no'
-ssh::permit_root_login:                'no'
-ssh::purge_keys:                       'no'
+ssh::sshd_x11_use_localhost: 'no'
+ssh::sshd_ignoreuserknownhosts:        'yes'
+
 ssh::ssh_config_ciphers:
   - 'aes128-ctr'
   - 'aes192-ctr'
@@ -63,16 +77,12 @@ ssh::ssh_config_macs:
   - 'hmac-sha1-etm@openssh.com'
   - 'hmac-sha2-256-etm@openssh.com'
   - 'hmac-sha2-512-etm@openssh.com'
-ssh::sshd_ignoreuserknownhosts:        'yes'
+ssh::ssh_config_forward_agent: 'no'
+ssh::ssh_config_forward_x11_trusted: 'no'
 ssh::ssh_config_global_known_hosts_list:
   - '/var/lib/sss/pubconf/known_hosts'
-ssh::sshd_pubkeyauthentication: 'yes'
 ssh::ssh_config_proxy_command: '/usr/bin/sss_ssh_knownhostsproxy -p %p %h'
-ssh::sshd_use_pam: 'yes'
-ssh::sshd_authorized_keys_command: '/usr/bin/sss_ssh_authorizedkeys'
-ssh::sshd_config_challenge_resp_auth: 'yes'
-ssh::sshd_authorized_keys_command_user: 'nobody'
-ssh::sshd_gssapiauthentication: 'yes'
+ssh::ssh_config_use_roaming: 'no'
 
 ssh::keys:
   root_for_mlosapio:
