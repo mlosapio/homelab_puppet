@@ -23,4 +23,4 @@ mod 'puppet-yum', '2.1.0'
 
 mod 'rmueller-cron', '1.0.0'
 
-mod 'huit-splunk', '1.7.2'
+mod 'jorritfolmer-splunk', '3.7.0'

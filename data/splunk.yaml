@@ -1,0 +1,7 @@
+classes:
+  - splunk 
+
+splunk::httpport   : 8000
+splunk::kvstoreport: 8191
+splunk::inputport  : 9997
+
