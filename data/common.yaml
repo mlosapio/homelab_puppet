@@ -139,11 +139,12 @@ dnsclient::nameservers:
 dnsclient::domain: 'losap.local'
 
 yum::manage_os_default_repos: true
-yum::install:
-  'bind-utils':
-    ensure: 'present'
-  'NetworkManager':
-    ensure: 'absent'
+
+packages::remove:
+  - NetworkManager
+
+packages::install:
+  - bind-utils
 
 cron::job:
   'yum_update':

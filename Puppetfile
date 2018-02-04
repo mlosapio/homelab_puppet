@@ -26,3 +26,7 @@ mod 'rmueller-cron', '1.0.0'
 mod 'jorritfolmer-splunk', '3.7.0'
 
 mod 'saz-sudo', '5.0.0'
+
+mod 'predicador37/packages',
+  :git => 'https://github.com/predicador37/puppet-packages.git',
+
