@@ -1,17 +1,18 @@
 classes:
-  - ssh
-  - profile::fw
-  - ntp
-  - rsyslog::client
+  - cron
+  - dnsclient
+  - hosts
   - network
   - network::hiera
-  - hosts
-  - sysctl::base
-  - dnsclient
-  - yum
-  - cron
+  - ntp
+  - packages::manage
+  - profile::fw
+  - rsyslog::client
+  - ssh
   - sudo
   - sudo::configs
+  - sysctl::base
+  - yum
 
 rsyslog::client::log_local: true
 rsyslog::client::log_remote: false
