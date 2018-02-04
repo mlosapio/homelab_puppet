@@ -22,3 +22,5 @@ mod 'thias-sysctl', '1.0.6'
 mod 'puppet-yum', '2.1.0'
 
 mod 'rmueller-cron', '1.0.0'
+
+mod 'huit-splunk', '1.7.2'
