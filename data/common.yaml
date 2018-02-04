@@ -143,4 +143,4 @@ cron::job:
 
 sudo::configs:
   'mlosapio':
-    'content' : 'ALL=(ALL)	NOPASSWD: ALL'
+    'content' : 'mlosapio ALL=(ALL)	NOPASSWD: ALL'
