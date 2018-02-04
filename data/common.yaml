@@ -9,6 +9,7 @@ classes:
   - sysctl::base
   - dnsclient
   - yum
+  - cron
 
 rsyslog::client::log_local: true
 rsyslog::client::log_remote: false
@@ -117,3 +118,13 @@ dnsclient::domain: 'losap.local'
 yum::manage_os_default_repos: true
 yum::install:
   - 'bind-utils'
+
+cron::job:
+  'yum_update':
+    command: '/bin/yum -y update'
+    minute:  0
+    hour:    1
+    date:    '*'
+    month:   '*'
+    weekday: '*'
+    user:    root
