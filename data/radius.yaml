@@ -1,0 +1,19 @@
+classes:
+  - freeradius
+
+freeradius::syslog: true
+freeradius::log_auth: yes
+freeradius::max_requests: 4096
+freeradius::max_server: 4096
+freeradius::ldap_support: true
+
+## Stub - Actual data lives in _secure.yaml ##
+freeradius::client:
+  'gw0':
+    ip: '10.8.0.1'
+    secret: 'testing123'
+    shortname: 'gw0'
+    port: '1812'
+    firewall: true
+###################
+
