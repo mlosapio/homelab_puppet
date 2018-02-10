@@ -43,6 +43,7 @@ firewall_rules_specific:
     proto: tcp
     dport: 88
     source: '10.0.0.0/8'
+    action: accept
   allow_kerberos1_udp:
     name: "204 Allow krb5 UDP"
     chain: INPUT
