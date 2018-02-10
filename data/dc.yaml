@@ -1,4 +1,13 @@
 
+ntp::disable_monitor: false
+ntp::fudge:
+  - '127.127.1.0 stratum 10'
+ntp::keys:
+  - '/etc/ntp/keys'
+ntp::restrict:
+  - 'default nomodify notrap nopeer noquery'
+  - '::1'
+
 firewall_rules_specific:
   allow_ldaps:
     name: "200 Allow LDAPS"
