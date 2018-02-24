@@ -31,4 +31,5 @@ mod 'saz-sudo', '5.0.0'
 mod 'predicador37/packages',
   :git => 'https://github.com/predicador37/puppet-packages.git'
 
-mod 'jgazeley-freeradius', '3.5.0'
+mod 'jgazeley-freeradius', 
+  :git => 'https://github.com/mlosapio/puppet-freeradius.git'
