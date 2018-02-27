@@ -140,7 +140,9 @@ dnsclient::nameservers:
 dnsclient::domain: 'losap.local'
 
 yum::manage_os_default_repos: true
-
+yum::managed_repos:
+  - epel
+ 
 packages::remove:
   - NetworkManager-wifi
   - NetworkManager-team
@@ -159,6 +161,25 @@ cron::job:
     month:   '*'
     weekday: '*'
     user:    root
+
+yum::repos:
+  'epel':
+    name: 'epel' 
+    ensure: 'present'
+    enabled: true
+    descr: 'EPEL Repo EL7'
+    baseurl: "http://download.fedoraproject.org/pub/epel/7/$basearch"
+    gpgkey: 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7'
+    target: '/etc/yum.repos.d/epel.repo'
+  'puppet5':
+    name: 'puppet'
+    ensure: 'present'
+    enabled: true
+    descr: 'Puppet 5 Repo EL7'
+    baseurl: 'http://yum.puppetlabs.com/puppet5/el/7/$basearch'
+    gpgkey: 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet5'
+    target: '/etc/yum.repos.d/puppet5.repo'
+    gpgcheck: true
 
 sudo::configs:
   'mlosapio':

@@ -7,15 +7,6 @@ puppetserver::version: '5.1.4-1.el7'
 yum::managed_repos:
     - 'puppet5'
 
-yum::repos:
-  puppet5:
-    ensure: 'present'
-    enabled: true
-    descr: 'Puppet 5 Repo EL7'
-    baseurl: 'http://yum.puppetlabs.com/puppet5/el/7/$basearch'
-    gpgkey: 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet5'
-    target: '/etc/yum.repos.d/puppet5.repo'
-
 firewall_rules_specific:
   allow_puppet:
     name: "200 Allow Puppet"
