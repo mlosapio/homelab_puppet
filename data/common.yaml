@@ -139,9 +139,10 @@ dnsclient::nameservers:
     - 10.8.0.30
 dnsclient::domain: 'losap.local'
 
-yum::manage_os_default_repos: true
 yum::managed_repos:
-  - epel
+  - base
+  - extras
+  - updates
  
 packages::remove:
   - NetworkManager-wifi
@@ -151,6 +152,7 @@ packages::remove:
 
 packages::install:
   - bind-utils
+  - epel-release
   - haveged
 
 cron::job:
@@ -164,14 +166,12 @@ cron::job:
     user:    root
 
 yum::repos:
-  'epel':
-    name: 'epel' 
-    ensure: 'present'
+  'updates':
     enabled: true
-    descr: 'EPEL Repo EL7'
-    baseurl: "http://download.fedoraproject.org/pub/epel/7/$basearch"
-    gpgkey: 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7'
-    target: '/etc/yum.repos.d/epel.repo'
+  'base':
+    enabled: true
+  'extras':
+    enabled: true
   'puppet5':
     name: 'puppet'
     ensure: 'present'
