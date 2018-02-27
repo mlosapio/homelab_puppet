@@ -151,6 +151,7 @@ packages::remove:
 
 packages::install:
   - bind-utils
+  - haveged
 
 cron::job:
   'yum_update':
