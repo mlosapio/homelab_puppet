@@ -1,1 +1,2 @@
 mike@losap.io
+puppet.losap.local
