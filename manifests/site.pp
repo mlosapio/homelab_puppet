@@ -9,3 +9,6 @@ create_resources('freeradius::site', $radius_site)
 
 $radius_krb5 = hiera('freeradius::krb5', {})
 create_resources('freeradius::krb5', $radius_krb5)
+
+$users = hiera('accounts::user', {})
+create_resources('accounts::user', $users)
