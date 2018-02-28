@@ -33,3 +33,5 @@ mod 'predicador37/packages',
 
 mod 'jgazeley-freeradius', 
   :git => 'https://github.com/mlosapio/puppet-freeradius.git'
+
+mod 'puppetlabs-accounts', '1.3.0'

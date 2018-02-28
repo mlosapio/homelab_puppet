@@ -185,3 +185,7 @@ yum::repos:
 sudo::configs:
   'mlosapio':
     'content' : 'mlosapio ALL=(ALL)	NOPASSWD: ALL'
+
+accounts::user:
+  'root':
+    password: '!!'
