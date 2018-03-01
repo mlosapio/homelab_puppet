@@ -16,7 +16,6 @@ freeradius::preserve_mods: true
 freeradius::status_server::port   : '1812'
 freeradius::status_server::secret : 'testing321'
 
-
 ## Log into IPA server and run
 ## ipa service-add radius/radius.losap.local@LOSAP.LOCAL 
 ## Log into Radius box and run ipa-getkeytab -s dc.losap.local -p radius/radius.losap.local -k /var/lib/radiusd/radius.keytab 
@@ -35,10 +34,8 @@ freeradius::site:
       - '-ldap'
       - 'expiration'
       - 'logintime'
-      - "if ((ok || updated)) {"
       - "update {"
       - "control:Auth-Type := Kerberos"
-      - "}"
       - "}"
     authenticate: 
       - "Auth-Type Kerberos {"
@@ -71,5 +68,4 @@ freeradius::client:
     secret         : 'testing321'
     shortname      : 'radius'
     port           : '1812'
-    firewall       : true
-
+    firewall       : false
