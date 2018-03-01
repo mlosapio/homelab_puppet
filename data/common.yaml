@@ -14,8 +14,9 @@ classes:
   - sysctl::base
   - yum
 
-rsyslog::client::log_local: true
-rsyslog::client::log_remote: false
+rsyslog::client::log_local                : true
+rsyslog::client::log_remote               : false
+rsyslog::client::high_precision_timestamps: true
 
 sysctl::base::values:
   net.ipv6.conf.all.disable_ipv6:
