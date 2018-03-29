@@ -7,13 +7,13 @@ splunk::inputport  : 9997
 
 firewall_rules_specific:
   allow_slunk:
-    name: "200 Allow Splunk"
+    name: "200 Allow splunk"
     chain: INPUT
     proto: tcp
     dport: 8000
     action: accept
   allow_syslog:
-    name: "200 Allow Splunk"
+    name: "200 Allow splunk syslog"
     chain: INPUT
     proto: tcp
     dport: 514
