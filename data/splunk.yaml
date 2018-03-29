@@ -11,19 +11,19 @@ firewall_rules_specific:
     chain: INPUT
     proto: tcp
     dport: 8000
-    action: ACCEPT
+    action: accept
   allow_syslog:
     name: "200 Allow splunk syslog"
     chain: INPUT
     proto: tcp
     dport: 514
-    action: ACCEPT
+    action: accept
   allow_splunk_log:
     name: "200 Allow syslog-redirect"
     chain: INPUT
     proto: tcp
     dport: 5140
-    action: ACCEPT
+    action: accept
   redirect_syslog:
     name   : "200 Redirect rsyslog"
     chain  : PREROUTING
