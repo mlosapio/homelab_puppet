@@ -15,9 +15,12 @@ classes:
   - yum
 
 rsyslog::client::log_local                : true
-rsyslog::client::log_remote               : false
+rsyslog::client::log_remote               : true
 rsyslog::client::high_precision_timestamps: true
-
+rsyslog::client::remote_servers::host     : splunk.losap.local
+rsyslog::client::remote_servers::port     : 514
+rsyslog::client::remote_servers::protocol : tcp
+rsyslog::client::remote_servers::pattern  : '*.*'
 sysctl::base::values:
   net.ipv6.conf.all.disable_ipv6:
     value: '1'
