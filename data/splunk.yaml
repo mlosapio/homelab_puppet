@@ -12,3 +12,11 @@ firewall_rules_specific:
     proto: tcp
     dport: 8000
     action: accept
+  redirect_syslog:
+    name   : "200 Redirect rsyslog"
+    chain  : PREROUTING
+    table  : nat
+    dport  : 514
+    toports: 50140
+    proto  : tcp
+    
