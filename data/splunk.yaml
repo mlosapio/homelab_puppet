@@ -17,6 +17,6 @@ firewall_rules_specific:
     chain  : PREROUTING
     table  : nat
     dport  : 514
-    toports: 50140
+    todest : 50140
     proto  : tcp
     jump   : redirect    
