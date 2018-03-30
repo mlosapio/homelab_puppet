@@ -21,8 +21,8 @@ rsyslog::client::split_config             : false
 rsyslog::client::remote_servers:
   'splunk':
         host    : 'splunk.losap.local'
-        port    : 514
-        protocol: tcp
+        port    : '514'
+        protocol: 'tcp'
         pattern : '*.*'
 
 sysctl::base::values:
