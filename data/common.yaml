@@ -15,7 +15,7 @@ classes:
   - yum
 
 rsyslog::client::log_local                : true
-rsyslog::client::high_precision_timestamps: true
+rsyslog::client::high_precision_timestamps: false
 rsyslog::client::split_config             : false
 rsyslog::client::log_remote               : true
 rsyslog::client::remote_type              : tcp
