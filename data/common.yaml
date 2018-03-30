@@ -17,8 +17,9 @@ classes:
 rsyslog::client::log_local                : true
 rsyslog::client::log_remote               : true
 rsyslog::client::high_precision_timestamps: true
+rsyslog::client::split_config             : false
 rsyslog::client::remote_servers:
-    'splunk.losap.local':
+  'splunk':
         host    : 'splunk.losap.local'
         port    : 514
         protocol: tcp
