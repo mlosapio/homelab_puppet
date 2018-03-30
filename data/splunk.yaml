@@ -5,6 +5,8 @@ splunk::httpport   : 8000
 splunk::kvstoreport: 8191
 splunk::inputport  : 9997
 
+rsyslog::client::port                     : '5140'
+
 firewall_rules_specific:
   allow_slunk:
     name: "200 Allow splunk"
