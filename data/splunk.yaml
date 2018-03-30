@@ -3,7 +3,7 @@ classes:
   - rsyslog::server
 
 rsyslog::server::enable_tcp: true
-rsyslog::server::server_dir: '/opt/syslog/'
+rsyslog::server::server_dir: '/opt/syslog/%$year%/%$month%/%$day%/'
 rsyslog::server::port      : 514
 
 splunk::httpport   : 8000
