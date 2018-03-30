@@ -6,7 +6,7 @@ classes:
 rsyslog::server::enable_tcp: true
 rsyslog::server::server_dir: '/opt/syslog/%$year%/%$month%/%$day%/'
 rsyslog::server::port      : 514
-rsyslog::params::perm_dir  : '0755'
+rsyslog::perm_dir          : '0755'
 
 splunk::httpport   : 8000
 splunk::kvstoreport: 8191
