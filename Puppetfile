@@ -9,7 +9,8 @@ mod 'puppetlabs-firewall', '1.11.0'
 
 mod 'puppetlabs-ntp', '7.0.0'
 
-mod 'saz-rsyslog', '5.0.0'
+mod 'saz-rsyslog',
+  :git => 'https://github.com/mlosapio/puppet-rsyslog.git' 
 
 mod 'razorsedge-network', '3.11.1'
 
