@@ -20,9 +20,15 @@ firewall_rules_specific:
     proto: tcp
     dport: 8000
     action: accept
-  allow_syslog:
-    name: "200 Allow splunk syslog"
+  allow_tcp_syslog:
+    name: "200 Allow tcp splunk syslog"
     chain: INPUT
     proto: tcp
+    dport: 514
+    action: accept
+  allow_udp_syslog:
+    name: "200 Allow udp splunk syslog"
+    chain: INPUT
+    proto: udp
     dport: 514
     action: accept
