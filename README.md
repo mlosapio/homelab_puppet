@@ -54,3 +54,10 @@ some other action (type on the keyboard, move the mouse, utilize the
 disks) during the prime generation; this gives the random number
 generator a better chance to gain enough entropy.
 ```
+
+To use this repo do the following:
+- Install puppet-server from the puppet repo
+- Clone repo to server
+- Install Puppet librarian
+- Run `librarian-puppet install`
+- Profit
