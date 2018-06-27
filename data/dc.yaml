@@ -1,12 +1,9 @@
 
-ntp::disable_monitor: false
-ntp::fudge:
-  - '127.127.1.0 stratum 10'
+ntp::servers:
+    - 'time.nist.gov'
+    - 'time-d-b.nist.gov'
 ntp::keys:
   - '/etc/ntp/keys'
-ntp::restrict:
-  - 'default nomodify notrap nopeer noquery'
-  - '::1'
 
 firewall_rules_specific:
   allow_ldaps:
