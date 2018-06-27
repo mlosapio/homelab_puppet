@@ -42,6 +42,7 @@ network::if_dynamic:
       defroute: 'yes'
 
 ntp::disable_monitor: false
+ntp::iburst_enable: true
 ntp::servers:
    - 'dc.losap.local'
 ntp::keys:
@@ -118,7 +119,7 @@ ssh::keys:
     ensure: present
     user  : root
     type  : rsa
-    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQCucHMknMIgGEGTwkD8ouhczGC+TK42Y7MmohvDqzvJqT0jdwgd1xjlWRa+q3gvaqqKwYaMBGSpFpSe7gspSY+c+xzMTupi4BVQdKh0TLQFzrbrB7a/jmvOj3MxmUuH8eHBfsadq2oU8znp0tUsOpiUhUUpMBxpchcS2499mh0Y1e5uwE+3YJ6bXNUEZOJU1sL7sbV16BZ40GTEsZmZ3MJye0PW/1Aawa//qa65hJ8zo87OtTemkwaVGIjNKGiPFKGK/AP5E8vNdXySDo5hfMvjW95CvqbrEdy6m84/XoZ3o1eS8QVdFqj0aVTkv/koZKA51asKJNhkITtT4MsL8YVF'
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDXF7h3nIgheg+3zX6dmtkNtQwlKT8TrpX2ry8a68QVaG4GuMGj+htNzzWBvZKDtyVVeLE5NscAqVxjYs3ruZ++1JeBu57E3vSx6V9zSDgDTrpgP64INrPQ1bcmtW+NHu9obXhbD2grcOKAqw8e3JITwLkofJr4c4Whjay7WKJsI/Ot2jnkigkcQrRTBu+M/n5CQ7bl0VUYggiond6aPeXrf7ZwiFVAqhZAa7F/0f4IRHg4vxk9ZQG35Qei6i1FU3UvKac0QqOXbIBz0z7/7QSuuZiSDkgajos6fteU6p7/y2OYRpJv6BLqmJTq2aSPpVrH2Kpz+KdRT35e1S6EpbYl'
 
 firewall_rules_common:
   allow_incoming_ICMP:
@@ -155,9 +156,10 @@ dnsclient::nameservers:
 dnsclient::domain: 'losap.local'
 
 yum::managed_repos:
-  - base
+  - base 
   - extras
   - updates
+  - epel
  
 packages::remove:
   - NetworkManager-wifi
@@ -169,6 +171,7 @@ packages::install:
   - bind-utils
   - epel-release
   - haveged
+  - nagios-plugins-ntp
 
 cron::job:
   'yum_update':
@@ -182,9 +185,19 @@ cron::job:
 
 yum::repos:
   'updates':
+    ensure  : 'present'
     enabled : true
+    baseurl : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra'
+    gpgkey  : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
+    target  : '/etc/yum.repos.d/CentOS-updates.repo'
+    gpgcheck: true
   'base':
+    ensure  : 'present'
     enabled : true
+    baseurl : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra'
+    gpgkey  : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
+    target  : '/etc/yum.repos.d/CentOS-base.repo'
+    gpgcheck: true
   'extras':
     enabled : true
   'puppet5':
@@ -195,6 +208,15 @@ yum::repos:
     baseurl : 'http://yum.puppetlabs.com/puppet5/el/7/$basearch'
     gpgkey  : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet5'
     target  : '/etc/yum.repos.d/puppet5.repo'
+    gpgcheck: true
+  'epel':
+    name    : 'epel'
+    ensure  : 'present'
+    enabled : true
+    descr   : 'EPEL'
+    baseurl : 'https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch'
+    gpgkey  : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7'
+    target  : '/etc/yum.repos.d/epel.repo'
     gpgcheck: true
 
 sudo::configs:

@@ -1,9 +1,13 @@
 
 ntp::servers:
-    - 'time.nist.gov'
-    - 'time-d-b.nist.gov'
+    - '0.pool.ntp.org'
+    - '1.pool.ntp.org'
+    - '2.pool.ntp.org'
+    - '3.pool.ntp.org'
 ntp::keys:
   - '/etc/ntp/keys'
+ntp::restrict:
+  - '10.0.0.0 netmask 255.0.0.0 nomodify notrap' 
 
 firewall_rules_specific:
   allow_ldaps:
