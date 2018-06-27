@@ -14,6 +14,11 @@ classes:
   - sysctl::base
   - yum
 
+hosts::lo_ipv4 : 
+  - '127.0.0.1'
+hosts::lo_ipv6: 
+  - '::1'
+
 rsyslog::client::log_local                : true
 rsyslog::client::high_precision_timestamps: false
 rsyslog::client::split_config             : false
@@ -22,12 +27,14 @@ rsyslog::client::remote_type              : tcp
 rsyslog::client::server                   : 'splunk.losap.local'
 rsyslog::client::port                     : '514'
 
+sysctl::base::purge: true
 sysctl::base::values:
+  net.ipv6.conf.ens192.disable_ipv6:
+    value: '1'
   net.ipv6.conf.all.disable_ipv6:
-    value: '1'
-  net.ipv6.conf.default.disable_ipv6:
-    value: '1'
-
+    value: '0'
+  net.ipv6.conf.lo.disable_ipv6:
+    value: '0'
 network::if_dynamic:
     'ens192':
       ensure: 'up'
