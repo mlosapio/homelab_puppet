@@ -14,3 +14,14 @@ firewall_rules_specific:
     proto: tcp
     dport: 8140
     action: accept
+
+cron::job:
+  'puppet_update':
+    command: 'pushd /etc/puppetlabs/code/environments/production && git pull && popd'
+    minute : 0
+    hour   : '*'
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root
+
