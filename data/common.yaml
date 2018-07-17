@@ -177,8 +177,8 @@ packages::install:
 cron::job:
   'yum_update':
     command: '/bin/yum -y update'
-    minute : 0
-    hour   : 1
+    minute : 30
+    hour   : 12
     date   : '*'
     month  : '*'
     weekday: '*'
