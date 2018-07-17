@@ -13,6 +13,7 @@ classes:
   - sudo::configs
   - sysctl::base
   - yum
+  - timezone
 
 hosts::lo_ipv4 : 
   - '127.0.0.1'
@@ -226,3 +227,5 @@ sudo::configs:
 accounts::user:
   'root':
     password: '!!'
+
+timezone::timezone: 'UTC'

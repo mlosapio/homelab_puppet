@@ -36,3 +36,5 @@ mod 'jgazeley-freeradius',
   :git => 'https://github.com/mlosapio/puppet-freeradius.git'
 
 mod 'puppetlabs-accounts', '1.3.0'
+
+mod 'saz-timezone', '5.0.2'
