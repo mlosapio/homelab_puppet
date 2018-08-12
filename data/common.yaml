@@ -192,54 +192,62 @@ cron::job:
     user   : root
 
 yum::repos:
-  'CentOS-Base':
-    ensure     : 'absent'
-  'CentOS-CR':
-    ensure   : 'absent'
+  'CentOS-Base'     :
+    ensure          : 'absent'
+    target          : '/etc/yum.repos.d/CentOS-Base.repo'
+  'CentOS-CR'       :
+    ensure          : 'absent'
+    target          : '/etc/yum.repos.d/CentOS-CR.repo'
+  'centos_extras'   :
+    ensure          : 'absent'
+    target          : '/etc/yum.repos.d/CentOS-Extras.repo'
   'CentOS-Debuginfo':
-    ensure : 'absent'
+    ensure          : 'absent'
+    target          : '/etc/yum.repos.d/CentOS-Debuginfo.repo'
   'CentOS-fasttrack':
-    ensure : 'absent'
-  'CentOS-Media':
-    ensure : 'absent'
-  'CentOS-Sources':
-    ensure : 'absent'
-  'CentOS-Vault':
-    ensure : 'absent'
-  'centos_updates':
-    ensure  : 'present'
-    enabled : true
-    baseurl : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra'
-    gpgkey  : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
-    target  : '/etc/yum.repos.d/CentOS-updates.repo'
-    gpgcheck: true
-  'centos_base':
-    ensure  : 'present'
-    enabled : true
-    baseurl : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra'
-    gpgkey  : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
-    target  : '/etc/yum.repos.d/CentOS-base.repo'
-    gpgcheck: true
-  'centos_extras':
-    enabled : true
-  'puppet5':
-    name    : 'puppet'
-    ensure  : 'present'
-    enabled : true
-    descr   : 'Puppet 5 Repo EL7'
-    baseurl : 'http://yum.puppetlabs.com/puppet5/el/7/$basearch'
-    gpgkey  : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet5'
-    target  : '/etc/yum.repos.d/puppet5.repo'
-    gpgcheck: true
-  'centos_epel':
-    name    : 'epel'
-    ensure  : 'present'
-    enabled : true
-    descr   : 'EPEL'
-    baseurl : 'https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch'
-    gpgkey  : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7'
-    target  : '/etc/yum.repos.d/epel.repo'
-    gpgcheck: true
+    ensure          : 'absent'
+    target          : '/etc/yum.repos.d/CentOS-fasttrack.repo'
+  'CentOS-Media'    :
+    ensure          : 'absent'
+    target          : '/etc/yum.repos.d/CentOS-Media.repo'
+  'CentOS-Sources'  :
+    ensure          : 'absent'
+    target          : '/etc/yum.repos.d/CentOS-Sources.repo'
+  'CentOS-Vault'    :
+    ensure          : 'absent'
+    target          : '/etc/yum.repos.d/CentOS-Vault.repo'
+  'centos_updates'  :
+    ensure          : 'present'
+    enabled         : true
+    baseurl         : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra'
+    gpgkey          : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
+    target          : '/etc/yum.repos.d/CentOS-updates.repo'
+    gpgcheck        : true
+  'centos_base'     :
+    ensure          : 'present'
+    enabled         : true
+    baseurl         : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra'
+    gpgkey          : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
+    target          : '/etc/yum.repos.d/CentOS-base.repo'
+    gpgcheck        : true
+  'puppet5'         :
+    name            : 'puppet'
+    ensure          : 'present'
+    enabled         : true
+    descr           : 'Puppet 5 Repo EL7'
+    baseurl         : 'http://yum.puppetlabs.com/puppet5/el/7/$basearch'
+    gpgkey          : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet5'
+    target          : '/etc/yum.repos.d/puppet5.repo'
+    gpgcheck        : true
+  'epel'            :
+    name            : 'epel'
+    ensure          : 'present'
+    enabled         : true
+    descr           : 'EPEL'
+    baseurl         : 'https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch'
+    gpgkey          : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7'
+    target          : '/etc/yum.repos.d/epel.repo'
+    gpgcheck        : true
 
 sudo::configs:
   'mlosapio':
