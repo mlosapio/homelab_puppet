@@ -192,9 +192,6 @@ cron::job:
     user   : root
 
 yum::repos:
-  'CentOS-Base'     :
-    ensure          : 'absent'
-    target          : '/etc/yum.repos.d/CentOS-Base.repo'
   'CentOS-CR'       :
     ensure          : 'absent'
     target          : '/etc/yum.repos.d/CentOS-CR.repo'
@@ -223,7 +220,7 @@ yum::repos:
     gpgkey          : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
     target          : '/etc/yum.repos.d/CentOS-updates.repo'
     gpgcheck        : true
-  'centos_base'     :
+  'CentOS-Base'     :
     ensure          : 'present'
     enabled         : true
     baseurl         : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra'
