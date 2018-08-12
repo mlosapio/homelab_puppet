@@ -161,7 +161,14 @@ yum::managed_repos:
   - extras
   - updates
   - epel
- 
+  - CentOS-Base
+  - CentOS-CR
+  - CentOS-Debuginfo
+  - CentOS-fasttrack
+  - CentOS-Media
+  - CentOS-Sources
+  - CentOS-Vault
+
 packages::remove:
   - NetworkManager-wifi
   - NetworkManager-team
@@ -185,6 +192,20 @@ cron::job:
     user   : root
 
 yum::repos:
+  'CentOS-Base':
+    ensure     : 'absent'
+  'CentOS-CR':
+    ensure   : 'absent'
+  'CentOS-Debuginfo':
+    ensure : 'absent'
+  'CentOS-fasttrack':
+    ensure : 'absent'
+  'CentOS-Media':
+    ensure : 'absent'
+  'CentOS-Sources':
+    ensure : 'absent'
+  'CentOS-Vault':
+    ensure : 'absent'
   'updates':
     ensure  : 'present'
     enabled : true
