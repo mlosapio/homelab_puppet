@@ -157,17 +157,9 @@ dnsclient::nameservers:
 dnsclient::domain: 'losap.local'
 
 yum::managed_repos:
-  - centos_base 
-  - centos_extras
-  - centos_updates
-  - centos_epel
   - CentOS-Base
-  - CentOS-CR
-  - CentOS-Debuginfo
-  - CentOS-fasttrack
-  - CentOS-Media
-  - CentOS-Sources
-  - CentOS-Vault
+  - CentOS-Updates
+  - epel
 
 packages::remove:
   - NetworkManager-wifi
@@ -192,28 +184,7 @@ cron::job:
     user   : root
 
 yum::repos:
-  'CentOS-CR'       :
-    ensure          : 'absent'
-    target          : '/etc/yum.repos.d/CentOS-CR.repo'
-  'centos_extras'   :
-    ensure          : 'absent'
-    target          : '/etc/yum.repos.d/CentOS-Extras.repo'
-  'CentOS-Debuginfo':
-    ensure          : 'absent'
-    target          : '/etc/yum.repos.d/CentOS-Debuginfo.repo'
-  'CentOS-fasttrack':
-    ensure          : 'absent'
-    target          : '/etc/yum.repos.d/CentOS-fasttrack.repo'
-  'CentOS-Media'    :
-    ensure          : 'absent'
-    target          : '/etc/yum.repos.d/CentOS-Media.repo'
-  'CentOS-Sources'  :
-    ensure          : 'absent'
-    target          : '/etc/yum.repos.d/CentOS-Sources.repo'
-  'CentOS-Vault'    :
-    ensure          : 'absent'
-    target          : '/etc/yum.repos.d/CentOS-Vault.repo'
-  'centos_updates'  :
+  'CentOS-Updates'  :
     ensure          : 'present'
     enabled         : true
     baseurl         : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra'
