@@ -157,10 +157,10 @@ dnsclient::nameservers:
 dnsclient::domain: 'losap.local'
 
 yum::managed_repos:
-  - base 
-  - extras
-  - updates
-  - epel
+  - centos_base 
+  - centos_extras
+  - centos_updates
+  - centos_epel
   - CentOS-Base
   - CentOS-CR
   - CentOS-Debuginfo
@@ -206,21 +206,21 @@ yum::repos:
     ensure : 'absent'
   'CentOS-Vault':
     ensure : 'absent'
-  'updates':
+  'centos_updates':
     ensure  : 'present'
     enabled : true
     baseurl : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra'
     gpgkey  : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
     target  : '/etc/yum.repos.d/CentOS-updates.repo'
     gpgcheck: true
-  'base':
+  'centos_base':
     ensure  : 'present'
     enabled : true
     baseurl : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os&infra=$infra'
     gpgkey  : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
     target  : '/etc/yum.repos.d/CentOS-base.repo'
     gpgcheck: true
-  'extras':
+  'centos_extras':
     enabled : true
   'puppet5':
     name    : 'puppet'
@@ -231,7 +231,7 @@ yum::repos:
     gpgkey  : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet5'
     target  : '/etc/yum.repos.d/puppet5.repo'
     gpgcheck: true
-  'epel':
+  'centos_epel':
     name    : 'epel'
     ensure  : 'present'
     enabled : true
