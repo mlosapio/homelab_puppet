@@ -20,7 +20,7 @@ mod 'chrekh-hosts', '2.3.1'
 
 mod 'thias-sysctl', '1.0.6'
 
-mod 'puppet-yum', '2.1.0'
+mod 'puppet-yum', '3.1.0'
 
 mod 'rmueller-cron', '1.0.0'
 
