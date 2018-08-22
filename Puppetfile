@@ -1,4 +1,4 @@
-forge "https://forge.puppetlabs.com"
+forge "https://forgeapi.puppetlabs.com" 
 
 mod 'puppetserver',
   :git => 'https://github.com/gutocarvalho/puppet-puppetserver.git'
