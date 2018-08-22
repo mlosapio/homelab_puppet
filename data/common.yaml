@@ -156,12 +156,11 @@ dnsclient::nameservers:
     - 10.8.0.30
 dnsclient::domain: 'losap.local'
 
-#yum::manage_repos: true
 
-#yum::managed_repos:
-#  - CentOS-Base
-#  - CentOS-Updates
-#  - epel
+yum::managed_repos:
+  - CentOS-Base
+  - CentOS-Updates
+  - epel
 
 packages::remove:
   - NetworkManager-wifi
@@ -184,14 +183,14 @@ cron::job:
     month  : '*'
     weekday: '*'
     user   : root
-
-yum::repo:
-  'CentOS-Updates'    :
-    ensure            : 'present'
-    enabled           : true
-    baseurl           : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra'
-    gpgcheck          : true
-    gpgkey_local_path : '/etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
+  'purge repo':
+    command: '/bin/rm -rf /etc/yum.repos.d/*'
+    minute : 30
+    hour   : 0
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root
 
 yum::repos:
   'CentOS-Updates'  :
