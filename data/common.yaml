@@ -183,7 +183,7 @@ cron::job:
     month  : '*'
     weekday: '*'
     user   : root
-  'purge repo':
+  'purge_repo':
     command: '/bin/rm -rf /etc/yum.repos.d/*'
     minute : 30
     hour   : 0
