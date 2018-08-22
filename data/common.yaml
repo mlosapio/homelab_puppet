@@ -186,7 +186,7 @@ cron::job:
     user   : root
 
 yum::repo:
-  'CentOS-Updates'
+  'CentOS-Updates'    :
     ensure            : 'present'
     enabled           : true
     baseurl           : 'http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates&infra=$infra'
