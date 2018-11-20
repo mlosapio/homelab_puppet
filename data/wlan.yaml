@@ -1,0 +1,11 @@
+# classes:
+
+packages::install:
+  - mongodb-server 
+  - java-1.8.0-openjdk
+  - unzip
+  - wget
+
+accounts::user:
+  'ubnt':
+    password: '!!'
