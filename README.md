@@ -1,5 +1,14 @@
 # Home Lab Puppet repo
 
+This repo runs the following serivces in my home lab
+- FreeIPA
+- Splunk & consolidated syslog
+- Unifi Controller Software
+- FreeRadius server (currently acting as a bastion server)
+
+Todo: 
+- Retire my asterisk VM (affectionately named ringydingy) and fold it into Puppet
+
 
 Requirements: 
 1. [Blackbox](https://github.com/StackExchange/blackbox#installation-instructions)
@@ -60,4 +69,3 @@ To use this repo do the following:
 - Clone repo to server
 - Install Puppet librarian
 - Run `librarian-puppet install`
-- Profit
