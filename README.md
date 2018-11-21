@@ -9,6 +9,7 @@ This repo runs the following serivces in my home lab
 Todo: 
 - Retire my asterisk VM (affectionately named ringydingy) and fold it into Puppet
 
+My goal for this repo is to _only_ use imported/external Puppet modules and to drive each configuration compontent into YAML. 
 
 Requirements: 
 1. [Blackbox](https://github.com/StackExchange/blackbox#installation-instructions)
