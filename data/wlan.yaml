@@ -47,3 +47,11 @@ firewall_rules_specific:
     dport: 6789
     source: '10.0.0.0/8'
     action: accept
+  forward_unifi_ssl:
+    name: "300 Forward SSL"
+    chain: PREROUTING
+    tables: nat
+    dport: 443
+    jump: REDIRECT
+    toports: 8443
+    proto: tcp
