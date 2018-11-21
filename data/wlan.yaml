@@ -50,7 +50,7 @@ firewall_rules_specific:
   forward_unifi_ssl:
     name: "300 Forward SSL"
     chain: PREROUTING
-    tables: nat
+    table: nat
     dport: 443
     jump: REDIRECT
     toports: 8443
