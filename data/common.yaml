@@ -2,6 +2,7 @@ classes:
   - cron
   - dnsclient
   - hosts
+  - logrotate
   - network
   - network::hiera
   - ntp
@@ -235,3 +236,12 @@ accounts::user:
     password: '!!'
 
 timezone::timezone: 'UTC'
+
+logrotate::ensure: 'latest'
+logrotate::config:
+  compress: true
+  rotate: 5
+  rotate_every: 'week'
+  ifempty: true
+  dateext: true
+

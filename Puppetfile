@@ -41,3 +41,5 @@ mod 'saz-timezone', '5.0.2'
 
 mod 'puppet-unifi',
   :git => 'https://github.com/mlosapio/puppet-unifi.git'
+
+mod 'puppet-logrotate', '3.4.0'
