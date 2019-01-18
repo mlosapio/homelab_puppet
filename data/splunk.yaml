@@ -32,3 +32,13 @@ firewall_rules_specific:
     proto: udp
     dport: 514
     action: accept
+
+cron::job:
+  'compress_syslog':
+    command: 'find /opt/syslog -mtime +1 -type f -name *.log -exec xz {} \;'
+    minute : 0
+    hour   : 17
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root
