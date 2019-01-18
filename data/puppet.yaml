@@ -17,7 +17,7 @@ firewall_rules_specific:
 
 cron::job:
   'puppet_update':
-    command: 'pushd /etc/puppetlabs/code/environments/production && librarian-puppet install && librarian-puppet update && pushd /etc/puppetlabs/code/environments/production && git pull && popd && popd'
+    command: 'pushd /etc/puppetlabs/code/environments/production && git pull && popd && pushd /etc/puppetlabs/code/environments/production && librarian-puppet install && librarian-puppet update && popd'
     minute : '*/5'
     hour   : '*'
     date   : '*'
