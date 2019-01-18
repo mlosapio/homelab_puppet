@@ -1,5 +1,6 @@
 classes:
   - puppetserver
+  - clamav
 
 puppetserver::java_args: '-Xms512m -Xmx512m -XX:MaxPermSize=128m'
 puppetserver::version: '5.1.4-1.el7'

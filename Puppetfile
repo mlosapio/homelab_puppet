@@ -43,3 +43,6 @@ mod 'puppet-unifi',
   :git => 'https://github.com/mlosapio/puppet-unifi.git'
 
 mod 'puppet-logrotate', '3.4.0'
+
+mod 'puppet-clamav',
+  :git => 'https://github.com/mlosapio/puppet-clamav.git'
