@@ -17,7 +17,7 @@ firewall_rules_specific:
     chain: INPUT
     proto: tcp
     dport: 8443
-    source: '10.8.0.0/24'
+    source: '10.0.0.0/8'
     action: accept
   allow_controller_inform:
     name: "200 Allow ACCESS TO INFORM"
