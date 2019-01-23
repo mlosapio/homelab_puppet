@@ -29,6 +29,7 @@ rsyslog::client::log_remote               : true
 rsyslog::client::remote_type              : tcp
 rsyslog::client::server                   : 'splunk.losap.local'
 rsyslog::client::port                     : '514'
+rsyslog::client::umask                    : '0022'
 
 sysctl::base::purge: true
 sysctl::base::values:
