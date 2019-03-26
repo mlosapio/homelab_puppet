@@ -5,6 +5,8 @@ defaults:
   data_hash: yaml_data
 
 hierarchy:
+  - name: "secure function"
+    path: "%{hostname}_secure.yaml"
   - name: "per function"  
     path: "%{hostname}.yaml"
   - name: "generic"

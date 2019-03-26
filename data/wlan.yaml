@@ -1,0 +1,59 @@
+classes:
+  - unifi
+
+packages::install:
+  - mongodb-server 
+  - java-1.8.0-openjdk
+  - unzip
+  - wget
+
+accounts::user:
+  'ubnt':
+    password: '!!'
+
+firewall_rules_specific:
+  allow_controller_https:
+    name: "200 Allow ACCESS TO CONTROLLER"
+    chain: INPUT
+    proto: tcp
+    dport: 8443
+    source: '10.0.0.0/8'
+    action: accept
+  allow_controller_inform:
+    name: "200 Allow ACCESS TO INFORM"
+    chain: INPUT
+    proto: tcp
+    dport: 8080
+    source: '10.0.0.0/8'
+    action: accept
+  allow_controller_stun:
+    name: "200 Allow ACCESS TO STUN"
+    chain: INPUT
+    proto: udp
+    dport: 3478
+    source: '10.0.0.0/8'
+    action: accept
+  allow_controller_discovery:
+    name: "200 Allow ACCESS TO discovery"
+    chain: INPUT
+    proto: udp
+    dport: 10001
+    source: '10.0.0.0/8'
+    action: accept
+  allow_controller_speedtest:
+    name: "200 Allow ACCESS TO speedtest"
+    chain: INPUT
+    proto: tcp
+    dport: 6789
+    source: '10.0.0.0/8'
+    action: accept
+  forward_unifi_ssl:
+    name: "300 Forward SSL"
+    chain: PREROUTING
+    table: nat
+    dport: 443
+    jump: REDIRECT
+    toports: 8443
+    proto: tcp
+
+nagios::check::mongodb::ensure: 'absent'

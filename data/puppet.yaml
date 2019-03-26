@@ -1,20 +1,16 @@
 classes:
   - puppetserver
+  - puppetdb
 
 puppetserver::java_args: '-Xms512m -Xmx512m -XX:MaxPermSize=128m'
 puppetserver::version: '5.1.4-1.el7'
+puppetserver::puppetdb: true
+puppetserver::puppetdb_server: 'puppet.losap.local'
+
+puppetdb::manage_firewall: false
 
 yum::managed_repos:
     - 'puppet5'
-
-yum::repos:
-  puppet5:
-    ensure: 'present'
-    enabled: true
-    descr: 'Puppet 5 Repo EL7'
-    baseurl: 'http://yum.puppetlabs.com/puppet5/el/7/$basearch'
-    gpgkey: 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet5'
-    target: '/etc/yum.repos.d/puppet5.repo'
 
 firewall_rules_specific:
   allow_puppet:
@@ -23,3 +19,27 @@ firewall_rules_specific:
     proto: tcp
     dport: 8140
     action: accept
+  allow_puppetdb:
+    name: "200 Allow PuppetDB"
+    chain: INPUT
+    proto: tcp
+    dport: 8081
+    action: accept
+
+cron::job:
+  'puppet_update':
+    command: 'pushd /etc/puppetlabs/code/environments/production && git pull && popd && pushd /etc/puppetlabs/code/environments/production && librarian-puppet install && librarian-puppet update && popd'
+    minute : '5'
+    hour   : '*'
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root
+
+postgresql::server::pg_hba_rule:
+  'allow puppetdb locally':
+    type       : 'host'
+    database   : 'all'
+    user       : 'all'
+    address    : '127.0.0.1/32'
+    auth_method: 'md5'

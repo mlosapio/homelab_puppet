@@ -1,0 +1,14 @@
+## Recon is nagios server
+classes:
+  - nagios::server 
+
+nagios::params::nrpe_options: '-t 30'
+
+firewall_rules_specific:
+  allow_http:
+    name: "200 Allow ACCESS TO NAGIOS"
+    chain: INPUT
+    proto: tcp
+    dport: 80
+    source: '10.0.0.0/8'
+    action: accept

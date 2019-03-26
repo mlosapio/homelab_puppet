@@ -1,0 +1,44 @@
+classes:
+  - splunk 
+  - rsyslog::server
+  - rsyslog::params
+
+rsyslog::server::enable_tcp: true
+rsyslog::server::server_dir: '/opt/syslog/%$year%/%$month%/%$day%/'
+rsyslog::server::port      : 514
+rsyslog::perm_dir          : '0755'
+rsyslog::perm_file         : '0755'
+
+splunk::httpport   : 8000
+splunk::kvstoreport: 8191
+splunk::inputport  : 9997
+
+firewall_rules_specific:
+  allow_slunk:
+    name: "200 Allow splunk"
+    chain: INPUT
+    proto: tcp
+    dport: 8000
+    action: accept
+  allow_tcp_syslog:
+    name: "200 Allow tcp splunk syslog"
+    chain: INPUT
+    proto: tcp
+    dport: 514
+    action: accept
+  allow_udp_syslog:
+    name: "200 Allow udp splunk syslog"
+    chain: INPUT
+    proto: udp
+    dport: 514
+    action: accept
+
+cron::job:
+  'compress_syslog':
+    command: '/bin/find /opt/syslog -mtime +1 -type f -name *.log -exec /bin/xz {} \;'
+    minute : 0
+    hour   : 17
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root

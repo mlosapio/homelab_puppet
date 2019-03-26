@@ -1,52 +1,103 @@
 classes:
-  - ssh
-  - profile::fw
-  - ntp
-  - rsyslog::client
+  - clamav
+  - cron
+  - dnsclient
+  - hosts
+  - logrotate
   - network
   - network::hiera
-  - hosts
+  - ntp
+  - packages::manage
+  - profile::fw
+  - rsyslog::client
+  - ssh
+  - sudo
+  - sudo::configs
   - sysctl::base
-  - dnsclient
   - yum
+  - timezone
+  - nagios::client
 
-rsyslog::client::log_local: true
-rsyslog::client::log_remote: false
+hosts::lo_ipv4 : 
+  - '127.0.0.1'
+hosts::lo_ipv6: 
+  - '::1'
 
+rsyslog::client::log_local                : true
+rsyslog::client::high_precision_timestamps: false
+rsyslog::client::split_config             : false
+rsyslog::client::log_remote               : true
+rsyslog::client::remote_type              : tcp
+rsyslog::client::server                   : 'splunk.losap.local'
+rsyslog::client::port                     : '514'
+rsyslog::client::log_local_custom:
+ - 'local4.*    /var/log/local4.log'
+rsyslog::umask                            : '0022'
+
+sysctl::base::purge: true
 sysctl::base::values:
+  net.ipv6.conf.ens192.disable_ipv6:
+    value: '1'
   net.ipv6.conf.all.disable_ipv6:
-    value: '1'
-  net.ipv6.conf.default.disable_ipv6:
-    value: '1'
-
+    value: '0'
+  net.ipv6.conf.lo.disable_ipv6:
+    value: '0'
 network::if_dynamic:
     'ens192':
       ensure: 'up'
       dhcp_hostname: "%{fqdn}"
       defroute: 'yes'
 
+ntp::disable_monitor: false
+ntp::iburst_enable: true
 ntp::servers:
-    - 'time.nist.gov'
-    - 'time-d-b.nist.gov'
+   - 'dc.losap.local'
+ntp::keys:
+   - '/etc/ntp/keys'
 ntp::restrict:
-    - '127.0.0.1'
+  - 'default nomodify notrap nopeer noquery'
+  - '::1'
+  - '127.0.0.1'
 
-
-ssh::sshd_config_use_dns               : 'yes'
-ssh::sshd_password_authentication      : 'yes'
-ssh::ssh_key_import: false
+ssh::permit_root_login                : 'no'
+ssh::purge_keys                       : 'no'
+ssh::sshd_allow_tcp_forwarding        : 'no'
+ssh::sshd_authorized_keys_command     : '/usr/bin/sss_ssh_authorizedkeys'
+ssh::sshd_authorized_keys_command_user: 'nobody'
+ssh::sshd_config_challenge_resp_auth  : 'yes'
+ssh::sshd_config_banner               : '/etc/banner'
+ssh::sshd_banner_content: |
+ ********************************************************************
+ *                                                                  *
+ * This system is for the use of authorized users only.  Usage of   *
+ * this system may be monitored and recorded by system personnel.   *
+ *                                                                  *
+ * Anyone using this system expressly consents to such monitoring   *
+ * and is advised that if such monitoring reveals possible          *
+ * evidence of criminal activity, system personnel may provide the  *
+ * evidence from such monitoring to law enforcement officials.      *
+ *                                                                  *
+ ********************************************************************
+ssh::sshd_gssapiauthentication         : 'yes'
+ssh::sshd_config_use_dns               : 'no'
 ssh::sshd_config_hostkey:
     - /etc/ssh/ssh_host_rsa_key
     - /etc/ssh/ssh_host_ed25519_key
-ssh::ssh_config_forward_x11:           'no'
-ssh::ssh_config_forward_agent:         'no'
-ssh::sshd_config_maxauthtries:         3
-ssh::sshd_config_permitemptypasswords: 'no'
-ssh::sshd_config_print_lastlog:        'yes'
-ssh::sshd_allow_tcp_forwarding:        'no'
-ssh::sshd_x11_forwarding:              'no'
-ssh::permit_root_login:                'no'
-ssh::purge_keys:                       'no'
+    - /etc/ssh/ssh_host_ecdsa_key
+ssh::ssh_config_forward_x11            : 'no'
+ssh::ssh_config_forward_agent          : 'no'
+ssh::sshd_config_maxauthtries          : 3
+ssh::sshd_config_permitemptypasswords  : 'no'
+ssh::sshd_config_print_lastlog         : 'yes'
+ssh::sshd_config_syslog_facility       : 'AUTHPRIV'
+ssh::sshd_ignoreuserknownhosts         : 'yes'
+ssh::sshd_gssapicleanupcredentials     : 'yes'
+ssh::sshd_password_authentication      : 'yes'
+ssh::sshd_use_pam                      : 'yes'
+ssh::sshd_x11_forwarding               : 'no'
+ssh::sshd_x11_use_localhost            : 'no'
+ssh::sshd_ignoreuserknownhosts         : 'yes'
+
 ssh::ssh_config_ciphers:
   - 'aes128-ctr'
   - 'aes192-ctr'
@@ -62,58 +113,153 @@ ssh::ssh_config_macs:
   - 'hmac-sha1-etm@openssh.com'
   - 'hmac-sha2-256-etm@openssh.com'
   - 'hmac-sha2-512-etm@openssh.com'
-ssh::sshd_ignoreuserknownhosts:        'yes'
+ssh::ssh_config_forward_agent          : 'no'
+ssh::ssh_config_forward_x11_trusted    : 'no'
 ssh::ssh_config_global_known_hosts_list:
   - '/var/lib/sss/pubconf/known_hosts'
-ssh::sshd_pubkeyauthentication: 'yes'
-ssh::ssh_config_proxy_command: '/usr/bin/sss_ssh_knownhostsproxy -p %p %h'
-ssh::sshd_use_pam: 'yes'
-ssh::sshd_authorized_keys_command: '/usr/bin/sss_ssh_authorizedkeys'
-ssh::sshd_config_challenge_resp_auth: 'yes'
-ssh::sshd_authorized_keys_command_user: 'nobody'
-ssh::sshd_gssapiauthentication: 'yes'
+ssh::ssh_config_proxy_command          : '/usr/bin/sss_ssh_knownhostsproxy -p %p %h'
+ssh::ssh_config_use_roaming            : 'no'
+ssh::ssh_key_import                    : false
 
 ssh::keys:
   root_for_mlosapio:
     ensure: present
-    user:   root
-    type:   rsa
-    key:    'AAAAB3NzaC1yc2EAAAADAQABAAABAQCucHMknMIgGEGTwkD8ouhczGC+TK42Y7MmohvDqzvJqT0jdwgd1xjlWRa+q3gvaqqKwYaMBGSpFpSe7gspSY+c+xzMTupi4BVQdKh0TLQFzrbrB7a/jmvOj3MxmUuH8eHBfsadq2oU8znp0tUsOpiUhUUpMBxpchcS2499mh0Y1e5uwE+3YJ6bXNUEZOJU1sL7sbV16BZ40GTEsZmZ3MJye0PW/1Aawa//qa65hJ8zo87OtTemkwaVGIjNKGiPFKGK/AP5E8vNdXySDo5hfMvjW95CvqbrEdy6m84/XoZ3o1eS8QVdFqj0aVTkv/koZKA51asKJNhkITtT4MsL8YVF'
+    user  : root
+    type  : rsa
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDXF7h3nIgheg+3zX6dmtkNtQwlKT8TrpX2ry8a68QVaG4GuMGj+htNzzWBvZKDtyVVeLE5NscAqVxjYs3ruZ++1JeBu57E3vSx6V9zSDgDTrpgP64INrPQ1bcmtW+NHu9obXhbD2grcOKAqw8e3JITwLkofJr4c4Whjay7WKJsI/Ot2jnkigkcQrRTBu+M/n5CQ7bl0VUYggiond6aPeXrf7ZwiFVAqhZAa7F/0f4IRHg4vxk9ZQG35Qei6i1FU3UvKac0QqOXbIBz0z7/7QSuuZiSDkgajos6fteU6p7/y2OYRpJv6BLqmJTq2aSPpVrH2Kpz+KdRT35e1S6EpbYl'
 
 firewall_rules_common:
   allow_incoming_ICMP:
-    name: "000 Allow all incoming pings"
-    chain: INPUT
-    proto: icmp
+    name  : "000 Allow all incoming pings"
+    chain : INPUT
+    proto : icmp
     action: accept
   allow_loopback:
-    name: "001 Allow all traffic on local loopback interface"
-    chain: INPUT
+    name   : "001 Allow all traffic on local loopback interface"
+    chain  : INPUT
     iniface: lo
-    proto: all
-    action: accept
+    proto  : all
+    action : accept
   allow_established_in:
-    name: "003 accept responses to outbound connections"
-    chain: INPUT
-    proto: all
-    state: ['RELATED', 'ESTABLISHED']
+    name  : "003 accept responses to outbound connections"
+    chain : INPUT
+    proto : all
+    state : ['RELATED', 'ESTABLISHED']
     action: accept
   allow_ssh:
-    name: "005 Allow SSH"
-    chain: INPUT
-    proto: tcp
-    dport: ssh
+    name  : "005 Allow SSH"
+    chain : INPUT
+    proto : tcp
+    dport : ssh
+    action: accept
+  allow_nrpe:
+    name  : '009 Allow NRPE'
+    chain : INPUT
+    proto : tcp
+    dport : 5666
     action: accept
   reject_everything_else:
-    name: "999 reject"
-    chain: INPUT
-    proto: all
+    name  : "999 reject"
+    chain : INPUT
+    proto : all
     action: drop
 
 dnsclient::nameservers:
     - 10.8.0.30
 dnsclient::domain: 'losap.local'
 
-yum::manage_os_default_repos: true
-yum::install:
-  - 'bind-utils'
+
+yum::managed_repos:
+  - CentOS-Base
+  - CentOS-Updates
+  - epel
+
+packages::remove:
+  - NetworkManager-wifi
+  - NetworkManager-team
+  - NetworkManager-tui
+  - NetworkManager
+
+packages::install:
+  - bind-utils
+  - epel-release
+  - haveged
+  - nagios-plugins-ntp
+
+nagios::client::config::host_address: 'recon.losap.local'
+nagios::client::nrpe_allowed_hosts: '127.0.0.1,recon.losap.local'
+
+## Disable these globally
+nagios::check::httpd::ensure: 'absent'
+nagios::check::swap::ensure: 'absent'
+
+cron::job:
+  'yum_update':
+    command: '/bin/yum -y update'
+    minute : 30
+    hour   : 12
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root
+  'purge_repo':
+    command: '/bin/rm -rf /etc/yum.repos.d/*'
+    minute : 30
+    hour   : 0
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root
+
+yum::repos:
+  'CentOS-Updates'  :
+    ensure          : 'present'
+    enabled         : true
+    baseurl         : 'http://mirror.centos.org/centos/7/updates/$basearch/'
+    gpgkey          : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
+    target          : '/etc/yum.repos.d/CentOS-updates.repo'
+    gpgcheck        : true
+  'CentOS-Base'     :
+    ensure          : 'present'
+    enabled         : true
+    baseurl         : 'http://mirror.centos.org/centos/7/os/$basearch/'
+    gpgkey          : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7'
+    target          : '/etc/yum.repos.d/CentOS-base.repo'
+    gpgcheck        : true
+  'puppet5'         :
+    name            : 'puppet'
+    ensure          : 'present'
+    enabled         : true
+    descr           : 'Puppet 5 Repo EL7'
+    baseurl         : 'http://yum.puppetlabs.com/puppet5/el/7/$basearch'
+    gpgkey          : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-puppet5'
+    target          : '/etc/yum.repos.d/puppet5.repo'
+    gpgcheck        : true
+  'epel'            :
+    name            : 'epel'
+    ensure          : 'present'
+    enabled         : true
+    descr           : 'EPEL'
+    baseurl         : 'https://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch'
+    gpgkey          : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7'
+    target          : '/etc/yum.repos.d/epel.repo'
+    gpgcheck        : true
+
+sudo::configs:
+  'mlosapio':
+    'content' : 'mlosapio ALL=(ALL)	NOPASSWD: ALL'
+
+accounts::user:
+  'root':
+    password: '!!'
+
+timezone::timezone: 'UTC'
+
+logrotate::ensure: 'latest'
+logrotate::config:
+  compress: true
+  rotate: 5
+  rotate_every: 'week'
+  ifempty: true
+  dateext: true
+

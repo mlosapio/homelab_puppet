@@ -1,0 +1,71 @@
+classes:
+  - freeradius
+#  - freeradius::status_server
+
+packages::install:
+  - freeradius-utils
+
+freeradius::syslog       : true
+freeradius::log_auth     : yes
+freeradius::max_requests : 4096
+freeradius::max_server   : 4096
+freeradius::krb5_support : true
+freeradius::utils_support: true
+freeradius::preserve_mods: true
+
+freeradius::status_server::port   : '1812'
+freeradius::status_server::secret : 'testing321'
+
+## Log into IPA server and run
+## ipa service-add radius/radius.losap.local@LOSAP.LOCAL 
+## Log into Radius box and run ipa-getkeytab -s dc.losap.local -p radius/radius.losap.local -k /var/lib/radiusd/radius.keytab 
+freeradius::krb5:
+  'Krb5':
+    keytab    : '/var/lib/radiusd/radius.keytab'
+    principal : 'radius/radius.losap.local'
+
+freeradius::site:
+  'ipa':
+    authorize: 
+      - 'filter_username'
+      - 'preprocess'
+      - 'chap'
+      - 'digest'
+      - '-ldap'
+      - 'expiration'
+      - 'logintime'
+      - "update {"
+      - "control:Auth-Type := Kerberos"
+      - "}"
+    authenticate: 
+      - "Auth-Type Kerberos {"
+      - "Krb5"
+      - "}"
+    preacct:
+      - 'preprocess'
+      - 'acct_unique'
+      - 'files'
+    accounting:
+      - 'detail'
+      - '-sql'
+      - 'exec'
+      - 'attr_filter.accounting_response'
+    listen:
+      - 'type': 'auth'
+        'ipaddr': "%{ipv4_pri_addrs}"
+        'port':  '1812'
+
+## Stub - Actual data lives in _secure.yaml ##
+freeradius::client:
+  'gw0':
+    ip             : '10.8.0.1'
+    secret         : 'testing321'
+    shortname      : 'gw0'
+    port           : '1812'
+    firewall       : true
+  'radius':
+    ip             : 'radius.losap.local'
+    secret         : 'testing321'
+    shortname      : 'radius'
+    port           : '1812'
+    firewall       : false
