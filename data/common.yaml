@@ -185,6 +185,7 @@ packages::install:
   - epel-release
   - haveged
   - nagios-plugins-ntp
+  - net-tools
 
 nagios::client::config::host_address: 'recon.losap.local'
 nagios::client::nrpe_allowed_hosts: '127.0.0.1,recon.losap.local'
