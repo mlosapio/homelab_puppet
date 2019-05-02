@@ -59,3 +59,5 @@ mod 'thias-nagios',
 mod 'thias-apache_httpd', '1.0.0'
 mod 'thias-php', '1.2.2'
 mod 'thias-selinux', '1.0.6'
+
+mod 'WhatsARanjit-plexmediaserver', '2.2.0'
