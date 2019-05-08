@@ -245,7 +245,7 @@ yum::repos:
     gpgkey          : 'file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-7'
     target          : '/etc/yum.repos.d/epel.repo'
     gpgcheck        : true
-  'extras'
+  'extras'          :
     name            : 'extras'
     ensure          : 'present'
     enabled         : true
