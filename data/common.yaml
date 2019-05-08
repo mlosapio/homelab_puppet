@@ -173,6 +173,7 @@ yum::managed_repos:
   - CentOS-Base
   - CentOS-Updates
   - epel
+  - extras
 
 packages::remove:
   - NetworkManager-wifi
