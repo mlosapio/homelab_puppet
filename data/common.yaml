@@ -52,6 +52,8 @@ ntp::disable_monitor: false
 ntp::iburst_enable: true
 ntp::servers:
    - 'dc.losap.local'
+   - 'ac.losap.local'
+
 ntp::keys:
    - '/etc/ntp/keys'
 ntp::restrict:
@@ -166,6 +168,7 @@ firewall_rules_common:
 
 dnsclient::nameservers:
     - 10.8.0.30
+
 dnsclient::domain: 'losap.local'
 
 
