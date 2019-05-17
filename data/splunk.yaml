@@ -16,6 +16,7 @@ splunk::inputport  : 9997
 firewall_rules_specific:
   allow_redirect:
     name: "100 Redirect Splunk"
+    tables: nat
     chain: PREROUTING
     proto: tcp
     dport: 443
