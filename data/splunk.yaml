@@ -21,7 +21,7 @@ firewall_rules_specific:
     proto: tcp
     dport: 443
     jump: redirect
-    toports: 8000
+    toport: 8000
   allow_slunk:
     name: "200 Allow splunk"
     chain: INPUT
