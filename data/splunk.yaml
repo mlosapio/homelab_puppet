@@ -14,14 +14,14 @@ splunk::kvstoreport: 8191
 splunk::inputport  : 9997
 
 firewall_rules_specific:
-  allow_redirect:
-    name: "100 Redirect Splunk"
-    table: nat
+  forward_redirect:
+    name: "300 Forward SSL"
     chain: PREROUTING
-    proto: tcp
+    table: nat
     dport: 443
-    jump: redirect
-    toport: 8000
+    jump: REDIRECT
+    toports: 8000
+    proto: tcp
   allow_slunk:
     name: "200 Allow splunk"
     chain: INPUT
