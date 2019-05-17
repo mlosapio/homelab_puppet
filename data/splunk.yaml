@@ -19,7 +19,7 @@ firewall_rules_specific:
     chain: PREROUTING
     proto: tcp
     dport: 443
-    action: redirect
+    jump: redirect
     toports: 8000
   allow_slunk:
     name: "200 Allow splunk"
