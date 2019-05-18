@@ -3,7 +3,7 @@ classes:
   - nfs::server
 
 nfs::server::export:
-  '/opt':
+  '/opt/media':
     ensure: 'mounted'
     clients: '10.8.0.0/24(rw,no_root_squash_async,insecure)'
 
