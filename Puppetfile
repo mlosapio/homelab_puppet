@@ -62,4 +62,4 @@ mod 'thias-selinux', '1.0.6'
 
 mod 'WhatsARanjit-plexmediaserver', '2.2.0'
 
-mod 'ULHPC-nfs', '0.1.7'
+mod 'derdanne-nfs', '2.1.2'
