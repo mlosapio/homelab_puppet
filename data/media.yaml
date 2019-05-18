@@ -4,6 +4,7 @@ classes:
 
 nfs::server_enabled: true
 nfs::nfs_v4:  true
+nfs::nfs_v4_idmap_domain:  %{::domain}
 nfs::nfs_v4_export_root:  '/opt/media'
 nfs::nfs_v4_export_root_clients: '10.8.0.0/24(rw,no_root_squash,async,insecure)'
 
