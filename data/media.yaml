@@ -1,7 +1,6 @@
 classes:
   - plexmediaserver 
   - nfs
-  - nfs::server
 
 nfs::server_enabled: true
 nfs::nfs_v4:  true
