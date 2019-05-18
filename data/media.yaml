@@ -19,7 +19,7 @@ firewall_rules_specific:
     source: '0.0.0.0/0'
     action: accept
   allow_high_security:
-    name: "200 Allow ACCESS TO PLEX"
+    name: "200 Allow ACCESS from HIGH zone"
     chain: INPUT
     source: '10.8.0.0/24'
     action: accept
