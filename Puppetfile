@@ -61,3 +61,5 @@ mod 'thias-php', '1.2.2'
 mod 'thias-selinux', '1.0.6'
 
 mod 'WhatsARanjit-plexmediaserver', '2.2.0'
+
+mod 'echocat-nfs', '1.9.0'
