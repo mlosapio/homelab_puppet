@@ -6,7 +6,7 @@ nfs::server_enabled: true
 nfs::server::export: 
     '/opt/media':
         ensure: 'mounted'
-        clients: '10.8.0.0/24(rw,no_root_squash,async,insecure)'
+        clients: '10.8.0.0/24(w,sync,no_root_squash,insecure)'
 
 plexmediaserver::plex_url: 'https://downloads.plex.tv/plex-media-server-new/1.15.4.993-bb4a2cb6c/redhat'
 plexmediaserver::plex_pkg: 'plexmediaserver-1.15.4.993-bb4a2cb6c.x86_64.rpm'
