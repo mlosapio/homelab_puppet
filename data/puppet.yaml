@@ -37,7 +37,7 @@ cron::job:
     user   : root
   'puppet_major_update':
     command: 'pushd /etc/puppetlabs/code/environments/production && librarian-puppet install && librarian-puppet update && popd'
-    minute : '5'
+    minute : '35'
     hour   : '0'
     date   : '*'
     month  : '*'
