@@ -27,10 +27,18 @@ firewall_rules_specific:
     action: accept
 
 cron::job:
-  'puppet_update':
-    command: 'pushd /etc/puppetlabs/code/environments/production && git pull && popd && pushd /etc/puppetlabs/code/environments/production && librarian-puppet install && librarian-puppet update && popd'
+  'puppet_minor_update':
+    command: 'pushd /etc/puppetlabs/code/environments/production && git pull && popd'
     minute : '5'
     hour   : '*'
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root
+  'puppet_major_update':
+    command: 'pushd /etc/puppetlabs/code/environments/production && librarian-puppet install && librarian-puppet update && popd'
+    minute : '5'
+    hour   : '0'
     date   : '*'
     month  : '*'
     weekday: '*'
