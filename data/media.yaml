@@ -25,7 +25,7 @@ firewall_rules_specific:
     source: '10.8.0.0/24'
     action: accept
   allow_arr_from_same_zone:
-    name: "Allow access from ARR"
+    name: "205 Allow access from ARR"
     chain: INPUT
     source: '10.250.0.37/32'
     action: accept
