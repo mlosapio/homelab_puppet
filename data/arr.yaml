@@ -1,8 +1,0 @@
-## YAML for ARR
-
-packages::install:
-  - docker-latest
-
- systemctl start docker-latest
-[root@arr mlosapio]# systemctl enable docker-latest
- 
