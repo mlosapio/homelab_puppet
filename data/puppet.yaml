@@ -43,6 +43,22 @@ cron::job:
     month  : '*'
     weekday: '*'
     user   : root
+  'prune_reports':
+    command: '/usr/bin/find -L /var/lib/puppet/reports -type f -mtime +30 -delete'
+    minute : '5'
+    hour   : '*'
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root
+  'print_bucket':
+    command : '/usr/bin/find /var/lib/puppet/clientbucket/ -type f -mtime +30 -delete'
+    minute : '5'
+    hour   : '*'
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root
 
 postgresql::server::pg_hba_rule:
   'allow puppetdb locally':
