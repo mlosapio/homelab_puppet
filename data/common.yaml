@@ -61,7 +61,7 @@ ntp::restrict:
   - '::1'
   - '127.0.0.1'
 
-ssh::permit_root_login                : 'no'
+ssh::permit_root_login                : 'yes'
 ssh::purge_keys                       : 'no'
 ssh::sshd_allow_tcp_forwarding        : 'no'
 ssh::sshd_authorized_keys_command     : '/usr/bin/sss_ssh_authorizedkeys'
