@@ -1,0 +1,10 @@
+packages::install:
+  - dnscrypt-proxy 
+
+firewall_rules_specific:
+  allow_dns:
+    name: "200 Allow ACCESS TO DNS"
+    chain: INPUT
+    dport: 53
+    source: '10.0.0.0/8'
+    action: accept
