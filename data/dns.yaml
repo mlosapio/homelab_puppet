@@ -5,9 +5,17 @@ packages::install:
   - dnscrypt-proxy 
 
 firewall_rules_specific:
-  allow_dns:
-    name: "200 Allow ACCESS TO DNS"
+  allow_dns_tcp:
+    name: "200 Allow ACCESS TO DNS tcp"
     chain: INPUT
+    proto: tcp
+    dport: 53
+    source: '10.0.0.0/8'
+    action: accept
+  allow_dns_udp:
+    name: "200 Allow ACCESS TO DNS udp"
+    chain: INPUT
+    proto: udp
     dport: 53
     source: '10.0.0.0/8'
     action: accept
