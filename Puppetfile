@@ -63,3 +63,6 @@ mod 'thias-selinux', '1.0.6'
 mod 'WhatsARanjit-plexmediaserver', '2.2.0'
 
 mod 'derdanne-nfs', '2.1.2'
+
+mod 'puppet-dnscrypt',
+  :git => 'https://github.com/mlosapio/puppet-dnscrypt.git'
