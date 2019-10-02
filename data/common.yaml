@@ -273,7 +273,7 @@ logrotate::ensure: 'latest'
 logrotate::config:
   compress: true
   rotate: 5
-  rotate_every: 'week'
+  rotate_every: 'day'
   ifempty: true
   dateext: true
 
