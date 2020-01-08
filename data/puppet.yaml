@@ -4,6 +4,8 @@ classes:
 
 puppetserver::java_args: '-Xms1024m -Xmx1024m -XX:MaxPermSize=256m'
 puppetserver::version: '5.3.10-1.el7'
+puppetserver::agent_version: '5.5.17-1.el7'
+puppetserver::puppetdb_version: '5.2.11-1.el7'
 puppetserver::puppetdb: true
 puppetserver::puppetdb_server: 'puppet.losap.local'
 
