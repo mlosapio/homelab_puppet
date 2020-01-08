@@ -59,6 +59,14 @@ cron::job:
     month  : '*'
     weekday: '*'
     user   : root
+  'old_reports':
+    command: '/usr/bin/find /opt/puppetlabs/server/data/puppetserver/reports / -type f -mtime +30 -delete'
+    minute : '5'
+    hour   : '*'
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root
 
 postgresql::server::pg_hba_rule:
   'allow puppetdb locally':
