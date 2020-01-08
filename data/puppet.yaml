@@ -60,7 +60,7 @@ cron::job:
     weekday: '*'
     user   : root
   'old_reports':
-    command: '/usr/bin/find /opt/puppetlabs/server/data/puppetserver/reports / -type f -mtime +30 -delete'
+    command: '/usr/bin/find /opt/puppetlabs/server/data/puppetserver/reports/ -type f -mtime +30 -delete'
     minute : '5'
     hour   : '*'
     date   : '*'
