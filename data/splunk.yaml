@@ -43,7 +43,7 @@ firewall_rules_specific:
 
 cron::job:
   'compress_syslog':
-    command: '/bin/find /opt/syslog -mtime +1 -type f -name *.log -exec /bin/xz {} \;' 
+    command: '/bin/find /opt/syslog -mtime +1 -type f -not -name *.xz -exec /bin/xz {} \;' 
     minute : 0
     hour   : 17
     date   : '*'
