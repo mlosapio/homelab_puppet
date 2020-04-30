@@ -66,7 +66,19 @@ generator a better chance to gain enough entropy.
 ```
 
 To use this repo do the following:
-- Install puppet-server from the puppet repo
+- Install puppetserver from the puppet repo
 - Clone repo to server
-- Install Puppet librarian
-- Run `librarian-puppet install`
+- Install Puppet librarian using the puppetserver gem al-la `/opt/puppetlabs/puppet/bin/gem install librarian-puppet`
+- Run `/opt/puppetlabs/puppet/bin/gem install librarian-puppet install`
+- Create a file at `modules/profile/manifests/fw.pp` containing
+```
+class profile::fw {
+    class { '::firewall':} 
+    resources { "firewall": purge => true,}
+    create_resources('firewall', hiera_hash('firewall_rules_common', {}))
+    create_resources('firewall', hiera_hash('firewall_rules_specific', {}))
+    create_resources('firewallchain', hiera_hash('firewall_default_policies', {}))
+}
+```
+^^ Todo is fix this requirement.
+

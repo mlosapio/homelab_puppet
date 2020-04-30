@@ -3,7 +3,9 @@ classes:
   - puppetdb
 
 puppetserver::java_args: '-Xms1024m -Xmx1024m -XX:MaxPermSize=256m'
-puppetserver::version: '5.1.4-1.el7'
+puppetserver::version: '5.3.10-1.el7'
+puppetserver::agent_version: '5.5.17-1.el7'
+puppetserver::puppetdb_version: '5.2.11-1.el7'
 puppetserver::puppetdb: true
 puppetserver::puppetdb_server: 'puppet.losap.local'
 
@@ -36,7 +38,7 @@ cron::job:
     weekday: '*'
     user   : root
   'puppet_major_update':
-    command: 'pushd /etc/puppetlabs/code/environments/production && librarian-puppet install && librarian-puppet update && popd'
+    command: 'pushd /etc/puppetlabs/code/environments/production && /opt/puppetlabs/puppet/bin/librarian-puppet install && /opt/puppetlabs/puppet/bin/librarian-puppet update && popd'
     minute : '35'
     hour   : '0'
     date   : '*'
@@ -53,6 +55,14 @@ cron::job:
     user   : root
   'print_bucket':
     command : '/usr/bin/find /var/lib/puppet/clientbucket/ -type f -mtime +30 -delete'
+    minute : '5'
+    hour   : '*'
+    date   : '*'
+    month  : '*'
+    weekday: '*'
+    user   : root
+  'old_reports':
+    command: '/usr/bin/find /opt/puppetlabs/server/data/puppetserver/reports/ -type f -mtime +30 -delete'
     minute : '5'
     hour   : '*'
     date   : '*'

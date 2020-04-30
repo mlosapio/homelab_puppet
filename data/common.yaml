@@ -99,6 +99,7 @@ ssh::sshd_use_pam                      : 'yes'
 ssh::sshd_x11_forwarding               : 'no'
 ssh::sshd_x11_use_localhost            : 'no'
 ssh::sshd_ignoreuserknownhosts         : 'yes'
+ssh:sshd_config_maxsessions            : 1
 
 ssh::ssh_config_ciphers:
   - 'aes128-ctr'
