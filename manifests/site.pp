@@ -27,3 +27,6 @@ create_resources('nagios::check', $nagios_check)
 
 $nfs_exports = hiera('nfs::server::export', {})
 create_resources('nfs::server::export', $nfs_exports)
+
+$limits = hiera('limits::fragment', {})
+create_resources('limits::fragment', $limits)

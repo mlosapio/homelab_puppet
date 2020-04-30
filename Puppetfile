@@ -66,3 +66,6 @@ mod 'derdanne-nfs', '2.1.2'
 
 mod 'puppet-dnscrypt',
   :git => 'https://github.com/mlosapio/puppet-dnscrypt.git'
+
+mod 'puppetlabs-limits',
+  :git => 'https://github.com/puppetlabs/puppetlabs-limits.git'

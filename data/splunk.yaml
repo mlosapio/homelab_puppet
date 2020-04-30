@@ -50,3 +50,13 @@ cron::job:
     month  : '*'
     weekday: '*'
     user   : root
+
+limits::fragment:
+  "*/soft/nofile":
+    value: '64000'
+  "*/hard/nofile":
+    value: '64000'
+  "*/soft/nproc":
+    value: '16000'
+  "*/hard/nproc":
+    value: '16000'
