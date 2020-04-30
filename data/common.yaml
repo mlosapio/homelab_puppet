@@ -17,6 +17,7 @@ classes:
   - yum
   - timezone
   - nagios::client
+  - limits
 
 hosts::lo_ipv4 : 
   - '127.0.0.1'
