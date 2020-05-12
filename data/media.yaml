@@ -8,8 +8,8 @@ nfs::server::export:
         ensure: 'mounted'
         clients: '10.8.0.0/24(rw,sync,no_root_squash,insecure) 10.250.0.37/32(rw,sync,no_root_squash,insecure)'
 
-plexmediaserver::plex_url: 'https://downloads.plex.tv/plex-media-server-new/1.18.7.2457-77cb9455c/redhat'
-plexmediaserver::plex_pkg: 'plexmediaserver-1.18.9.2578-513b381af.x86_64.rpm'
+plexmediaserver::plex_url: 'https://downloads.plex.tv/plex-media-server-new/1.19.3.2764-ef515a800/redhat'
+plexmediaserver::plex_pkg: 'plexmediaserver-1.19.3.2764-ef515a800.x86_64.rpm'
 
 firewall_rules_specific:
   allow_plex:
