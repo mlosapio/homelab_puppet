@@ -23,6 +23,8 @@ hosts::lo_ipv4 :
   - '127.0.0.1'
 hosts::lo_ipv6: 
   - '::1'
+hosts::puppet:
+  - '10.8.0.31'
 
 rsyslog::client::log_local                : true
 rsyslog::client::high_precision_timestamps: false
