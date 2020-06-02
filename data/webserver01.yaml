@@ -32,10 +32,17 @@ sudo::configs:
     'content' : 'centos ALL=(ALL)     NOPASSWD: ALL'
 
 firewall_rules_specific:
-  allow_tinc:
-    name: "200 Allow TINC VPN"
+  allow_tinc_tcp:
+    name: "200 Allow TINC VPN TCP"
     chain: INPUT
     dport: 655
     source: '0.0.0/0'
     action: accept
-
+    proto: tcp
+  allow_tinc_udp:
+    name: "200 Allow TINC VPN UDP"
+    chain: INPUT
+    dport: 655
+    source: '0.0.0/0'
+    action: accept
+    proto: udp
