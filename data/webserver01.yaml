@@ -33,13 +33,20 @@ sudo::configs:
 
 firewall_rules_specific:
   allow_tinc_tcp:
-    name: "200 Allow TINC VPN TCP"
-    chain: INPUT
-    dport: 655
-    action: accept
+    name   : "200 Allow TINC VPN TCP"
+    chain  : INPUT
+    dport  : 655
+    action : accept
   allow_tinc_udp:
-    name: "200 Allow TINC VPN UDP"
-    chain: INPUT
-    dport: 655
-    action: accept
-    proto: udp
+    name:   "200 Allow TINC VPN UDP"
+    chain  : INPUT
+    dport  : 655
+    action : accept
+    proto  : udp
+  allow_nrpe_from_tunnel:
+    name   : '200 Allow NRPE from tunnel'
+    chain  : INPUT
+    dport  : 5666
+    source : '100.64.0.3/32'
+    proto  : tcp
+    action : accept
