@@ -1,6 +1,3 @@
-classes: 
-  - nagios::client::config
-
 hosts::entries:
   'puppet':
     '10.8.0.31':
@@ -54,4 +51,6 @@ firewall_rules_specific:
     proto  : tcp
     action : accept
 
-nagios::client::config::host_address: 100.64.0.1
+nagios::client::config:
+  host_address: 100.64.0.1
+
