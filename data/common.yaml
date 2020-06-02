@@ -152,11 +152,12 @@ firewall_rules_common:
     dport : ssh
     action: accept
   allow_nrpe:
-    name  : '009 Allow NRPE'
-    chain : INPUT
-    proto : tcp
-    dport : 5666
-    action: accept
+    name   : '009 Allow NRPE'
+    chain  : INPUT
+    proto  : tcp
+    dport  : 5666
+    source : '10.8.0.24/32'
+    action : accept
   reject_everything_else:
     name  : "999 reject"
     chain : INPUT
