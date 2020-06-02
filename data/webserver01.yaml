@@ -50,3 +50,5 @@ firewall_rules_specific:
     source : '100.64.0.3/32'
     proto  : tcp
     action : accept
+
+nagios::client::config::host_address: 100.64.0.1
