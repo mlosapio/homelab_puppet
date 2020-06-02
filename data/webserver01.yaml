@@ -31,4 +31,11 @@ sudo::configs:
   'centos':
     'content' : 'centos ALL=(ALL)     NOPASSWD: ALL'
 
+firewall_rules_specific:
+  allow_tinc:
+    name: "200 Allow TINC VPN"
+    chain: INPUT
+    dport: 655
+    source: '0.0.0/0'
+    action: accept
 
