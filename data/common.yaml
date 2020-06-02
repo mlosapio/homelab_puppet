@@ -152,7 +152,7 @@ firewall_rules_common:
     dport : ssh
     action: accept
   allow_nrpe:
-    name   : '009 Allow NRPE'
+    name   : '009 Allow NRPE only from nagios'
     chain  : INPUT
     proto  : tcp
     dport  : 5666
