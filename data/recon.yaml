@@ -6,7 +6,7 @@ nagios::params::nrpe_options: '-t 30'
 
 firewall_rules_specific:
   deny_vpn:
-    name   : "050 deny VPN"
+    name   : "004 deny VPN"
     chain  : INPUT
     source : '100.64.0.1/24'
     action : drop 
