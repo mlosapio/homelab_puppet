@@ -36,13 +36,9 @@ firewall_rules_specific:
     name: "200 Allow TINC VPN TCP"
     chain: INPUT
     dport: 655
-    source: '0.0.0/0'
     action: accept
-    proto: tcp
-  allow_tinc_udp:
     name: "200 Allow TINC VPN UDP"
     chain: INPUT
     dport: 655
-    source: '0.0.0/0'
     action: accept
     proto: udp
