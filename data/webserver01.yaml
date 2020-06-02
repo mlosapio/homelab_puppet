@@ -37,6 +37,7 @@ firewall_rules_specific:
     chain: INPUT
     dport: 655
     action: accept
+  allow_tinc_udp:
     name: "200 Allow TINC VPN UDP"
     chain: INPUT
     dport: 655
