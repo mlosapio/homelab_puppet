@@ -5,6 +5,11 @@ classes:
 nagios::params::nrpe_options: '-t 30'
 
 firewall_rules_specific:
+  deny_vpn:
+    name   : "050 deny VPN"
+    chain  : INPUT
+    source : '100.64.0.1/24'
+    action : drop 
   allow_http:
     name: "200 Allow ACCESS TO NAGIOS"
     chain: INPUT
