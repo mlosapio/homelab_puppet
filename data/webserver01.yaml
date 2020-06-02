@@ -26,3 +26,9 @@ dnsclient::nameservers:
     - 208.67.222.222 
 
 dnsclient::domain: 'losap.local'
+
+sudo::configs:
+  'centos':
+    'content' : 'centos ALL=(ALL)     NOPASSWD: ALL'
+
+
