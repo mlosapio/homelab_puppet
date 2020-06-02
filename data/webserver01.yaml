@@ -1,5 +1,8 @@
-hosts::puppet:
-  - '10.8.0.31'
+hosts::entries:
+  'puppet':
+    '10.8.0.31':
+      - 'puppet.losap.local'
+      - 'puppet'
 
 sysctl::base::values:
   net.ipv6.conf.eth0.disable_ipv6:
