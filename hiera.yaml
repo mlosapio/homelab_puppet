@@ -9,5 +9,7 @@ hierarchy:
     path: "%{hostname}_secure.yaml"
   - name: "per function"  
     path: "%{hostname}.yaml"
+  - name: "per platform"
+    path: "%{virtual}.yaml"
   - name: "generic"
     path: "common.yaml"

@@ -43,11 +43,6 @@ sysctl::base::values:
     value: '0'
   net.ipv6.conf.lo.disable_ipv6:
     value: '0'
-network::if_dynamic:
-    'ens192':
-      ensure: 'up'
-      dhcp_hostname: "%{fqdn}"
-      defroute: 'yes'
 
 ntp::disable_monitor: false
 ntp::iburst_enable: true
