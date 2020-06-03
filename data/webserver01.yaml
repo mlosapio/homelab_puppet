@@ -53,5 +53,5 @@ firewall_rules_specific:
 
 nagios::client::config:
   'host_address': 
-    host_address: '100.64.0.1'
+    value: '100.64.0.1'
 
