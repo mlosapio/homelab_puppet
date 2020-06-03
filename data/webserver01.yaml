@@ -54,5 +54,3 @@ firewall_rules_specific:
 nagios::client::config:
   'host_address': 
     value: '100.64.0.1'
-  'nrpe_allowed_hosts':
-    value: '100.64.0.3'
