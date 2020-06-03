@@ -1,6 +1,3 @@
-classes: 
-  - nagios::client::config
-
 hosts::entries:
   'puppet':
     '10.8.0.31':
