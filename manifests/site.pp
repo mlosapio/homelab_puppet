@@ -25,8 +25,8 @@ create_resources('postgresql::server::pg_hba_rule', $pghba_rule)
 $nagios_check = hiera('nagios::check', {})
 create_resources('nagios::check', $nagios_check)
 
-$nagios_config = hiera('nagios::client' {})
-create_resources('nagios::client', $nagios_config)
+$nagios_config = hiera('nagios::client::config' {})
+create_resources('nagios::client::config', $nagios_config)
 
 $nfs_exports = hiera('nfs::server::export', {})
 create_resources('nfs::server::export', $nfs_exports)
