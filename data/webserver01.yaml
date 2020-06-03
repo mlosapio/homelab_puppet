@@ -53,6 +53,16 @@ firewall_rules_specific:
     source : '100.64.0.3/32'
     proto  : tcp
     action : accept
+  allow_http:
+    name   : '300 Allow HTTP'
+    chain  : INPUT
+    dport  : 80
+    action : accept
+  allow_https:
+    name   : '300 Allow HTTPS'
+    chain  : INPUT
+    dport  : 443
+    action : accept
 
 nagios::client::config:
   'host_address': 
