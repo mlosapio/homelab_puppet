@@ -33,3 +33,6 @@ create_resources('nfs::server::export', $nfs_exports)
 
 $limits = hiera('limits::fragment', {})
 create_resources('limits::fragment', $limits)
+
+$apache_vhosts = hiera('apache::vhost', {})
+create_resources('apache::vhost', $apache_vhosts)
