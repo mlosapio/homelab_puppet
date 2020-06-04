@@ -69,4 +69,4 @@ nagios::client::config:
   'host_address': 
     value: '100.64.0.1'
 
-
+apache::default_ssl_vhost: true
