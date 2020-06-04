@@ -69,3 +69,6 @@ nagios::client::config:
     value: '100.64.0.1'
 
 apache_httpd::serversignature: 'Off'
+apache_httpd::ssl: true
+apache_httpd::welcome: false
+
