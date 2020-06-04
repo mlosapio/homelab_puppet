@@ -55,10 +55,12 @@ mod 'puppet_local_rsyslog',
 ## All this for nagios
 mod 'thias-nagios',
   :git => 'https://github.com/mlosapio/puppet-nagios.git'
-
 mod 'thias-apache_httpd', '1.0.0'
 mod 'thias-php', '1.2.2'
 mod 'thias-selinux', '1.0.6'
+
+# webserver01
+mod 'puppetlabs-apache', '5.4.0'
 
 mod 'WhatsARanjit-plexmediaserver', '2.2.0'
 
