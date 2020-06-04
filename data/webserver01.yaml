@@ -1,5 +1,6 @@
 classes: 
   - apache
+  - apache::mod::ssl
 
 hosts::entries:
   'puppet':
@@ -67,4 +68,5 @@ firewall_rules_specific:
 nagios::client::config:
   'host_address': 
     value: '100.64.0.1'
+
 
