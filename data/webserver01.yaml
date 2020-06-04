@@ -71,7 +71,7 @@ nagios::client::config:
 
 apache::default_ssl_vhost: true
 apache::vhost:
-  'mike.losap.io ssl':
+  'mike.losap.io-ssl':
     servername: 'mike.losap.io'
     port      : '443'
     docroot   : '/var/www/sites/mike.losap.io'
