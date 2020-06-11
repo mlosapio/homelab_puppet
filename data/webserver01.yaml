@@ -1,7 +1,6 @@
 classes: 
   - apache
   - apache::mod::ssl
-  - apache::mod::php
   - letsencrypt
 
 hosts::entries:
