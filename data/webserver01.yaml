@@ -70,6 +70,8 @@ nagios::client::config:
   'host_address': 
     value: '100.64.0.1'
 
+php::ensure: latest
+
 apache::default_ssl_vhost: true
 apache::vhost:
   'mike.losap.io-ssl':
