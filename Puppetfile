@@ -74,3 +74,4 @@ mod 'puppetlabs-limits',
 
 mod 'puppet-letsencrypt', '5.0.0'
 
+mod 'puppet-php', '7.1.0'
