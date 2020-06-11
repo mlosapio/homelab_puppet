@@ -78,6 +78,8 @@ apache::vhost:
     docroot   : '/var/www/sites/mike.losap.io'
     ssl       : true
     override  : 'all'
+    ssl_cert  : '/etc/letsencrypt/live/mike.losap.io/fullchain.pem'
+    ssl_key   : '/etc/letsencrypt/live/mike.losap.io/privkey.pem'
   'mike.losap.io':
     servername: 'mike.losap.io'
     port      : '80'
