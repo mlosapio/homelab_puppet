@@ -83,6 +83,13 @@ apache::vhost:
     port      : '80'
     docroot   : '/var/www/sites/mike.losap.io'
     override  : 'all'
+
 letsencrypt::config::email: 'mike.losapio@gmail.com'
 letsencrypt::configure_epel: false
-
+letsencrypt::certonly:
+  'mike.losap.io':
+    domains:
+      - mike.losap.io
+    plugin : 'webroot'
+    webroot_paths:
+      - '/var/www/sites/mike.losap.io'
