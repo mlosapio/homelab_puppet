@@ -4,6 +4,10 @@ classes:
   - apache::mod::php
   - letsencrypt
 
+packages::install:
+  - mariadb-server 
+  - mariadb 
+
 ssh::sshd_password_authentication      : 'no'
 
 hosts::entries:
