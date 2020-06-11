@@ -79,3 +79,5 @@ apache::vhost:
     ssl       : true
 
 letsencrypt::config::email: 'mike.losapio@gmail.com'
+letsencrypt::configure_epel: false
+
