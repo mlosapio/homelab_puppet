@@ -1,6 +1,7 @@
 classes: 
   - apache
   - apache::mod::ssl
+  - letsencrypt
 
 hosts::entries:
   'puppet':
@@ -77,3 +78,4 @@ apache::vhost:
     docroot   : '/var/www/sites/mike.losap.io'
     ssl       : true
 
+letsencrypt::config::email: 'mike.losapio@gmail.com'
