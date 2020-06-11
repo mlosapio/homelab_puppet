@@ -86,12 +86,16 @@ apache::vhost:
     docroot   : '/var/www/sites/mike.losap.io'
     override  : 'all'
   'eolcentos6.com-ssl':
-    servername: 'eolcentos6.com'
-    port      : '443'
-    docroot   : '/var/www/sites/eolcentos6.com'
-    ssl       : true
+    servername   : 'eolcentos6.com'
+    serveraliases: 
+      - www.eolcentos6.com
+    port         : '443'
+    docroot      : '/var/www/sites/eolcentos6.com'
+    ssl          : true
   'eolcentos6.com':
     servername: 'eolcentos6.com'
+    serveraliases : 
+      - www.eolcentos6.com
     port      : '80'
     docroot   : '/var/www/sites/eolcentos6.com'
 
