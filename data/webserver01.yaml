@@ -4,6 +4,8 @@ classes:
   - apache::mod::php
   - letsencrypt
 
+ssh::sshd_password_authentication      : 'no'
+
 hosts::entries:
   'puppet':
     '10.8.0.31':
