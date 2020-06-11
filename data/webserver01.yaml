@@ -3,6 +3,9 @@ classes:
   - apache::mod::ssl
   - letsencrypt
 
+packages::install:
+  - php 
+
 hosts::entries:
   'puppet':
     '10.8.0.31':
