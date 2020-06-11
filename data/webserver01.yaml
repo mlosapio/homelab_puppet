@@ -2,7 +2,6 @@ classes:
   - apache
   - apache::mod::ssl
   - letsencrypt
-  - letsencrypt::certonly
 
 hosts::entries:
   'puppet':
