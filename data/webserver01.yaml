@@ -77,10 +77,12 @@ apache::vhost:
     port      : '443'
     docroot   : '/var/www/sites/mike.losap.io'
     ssl       : true
+    override  : 'all'
   'mike.losap.io':
     servername: 'mike.losap.io'
     port      : '80'
     docroot   : '/var/www/sites/mike.losap.io'
+    override  : 'all'
 letsencrypt::config::email: 'mike.losapio@gmail.com'
 letsencrypt::configure_epel: false
 
