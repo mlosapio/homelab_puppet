@@ -36,3 +36,6 @@ create_resources('limits::fragment', $limits)
 
 $apache_vhosts = hiera('apache::vhost', {})
 create_resources('apache::vhost', $apache_vhosts)
+
+$letsencrypt_certs = hiera('letsencrypt::certonly', {})
+create_resources('letsencrypt::certonly', $letsencrypt_certs)
