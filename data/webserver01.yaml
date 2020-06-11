@@ -112,3 +112,10 @@ letsencrypt::certonly:
     plugin : 'webroot'
     webroot_paths:
       - '/var/www/sites/mike.losap.io'
+  'eolcentos6.com':
+    domains:
+      - eolcentos6.com
+      - www.eolcentos6.com 
+    plugin : 'webroot'
+    webroot_paths:
+      - '/var/www/sites/eolcentos6.com'
