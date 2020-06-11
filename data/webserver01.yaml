@@ -109,6 +109,21 @@ apache::vhost:
       - www.eolcentos6.com
     port      : '80'
     docroot   : '/var/www/sites/eolcentos6.com'
+  'warrenfire.org-ssl':
+    servername   : 'warrenfire.org'
+    serveraliases:
+      - www.warrenfire.org
+      - www2.warrenfire.org
+    port         : '443'
+    docroot      : '/var/www/sites/warrenfire.org'
+    ssl          : true
+  'warrenfire.org':
+    servername: 'warrenfire.org'
+    serveraliases :
+      - www.warrenfire.org
+      - www2.warrenfire.org
+    port      : '80'
+    docroot   : '/var/www/sites/warrenfire.org'
 
 letsencrypt::config::email: 'mike.losapio@gmail.com'
 letsencrypt::configure_epel: false
