@@ -73,5 +73,3 @@ mod 'puppetlabs-limits',
   :git => 'https://github.com/puppetlabs/puppetlabs-limits.git'
 
 mod 'puppet-letsencrypt', '5.0.0'
-
-mod 'puppet-php', '7.1.0'
