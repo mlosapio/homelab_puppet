@@ -92,6 +92,8 @@ apache::vhost:
     port         : '443'
     docroot      : '/var/www/sites/eolcentos6.com'
     ssl          : true
+    ssl_cert  : '/etc/letsencrypt/live/eolcentos6.com/fullchain.pem'
+    ssl_key   : '/etc/letsencrypt/live/eolcentos6.com/privkey.pem'
   'eolcentos6.com':
     servername: 'eolcentos6.com'
     serveraliases : 
