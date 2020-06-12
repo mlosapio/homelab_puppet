@@ -78,8 +78,8 @@ nagios::client::config:
     value: '100.64.0.1'
 
 apache::default_ssl_vhost: true
-apache::mod::php::php_version: '7'
-apache::mod::php::path: 'modules/libphp7.so'
+apache::mod::php::php_version: '73'
+apache::mod::php::path: 'modules/libphp73.so'
 apache::vhost:
   'mike.losap.io-ssl':
     servername: 'mike.losap.io'
