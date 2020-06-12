@@ -116,6 +116,7 @@ apache::vhost:
       - www2.warrenfire.org
     port         : '443'
     docroot      : '/var/www/sites/warrenfire.org'
+    override     : 'all'
     ssl          : true
   'warrenfire.org':
     servername: 'warrenfire.org'
@@ -123,6 +124,7 @@ apache::vhost:
       - www.warrenfire.org
       - www2.warrenfire.org
     port      : '80'
+    override  : 'all'
     docroot   : '/var/www/sites/warrenfire.org'
 
 letsencrypt::config::email: 'mike.losapio@gmail.com'
