@@ -77,6 +77,10 @@ nagios::client::config:
   'host_address': 
     value: '100.64.0.1'
 
+nagios::check::mysql_health::modes_disabled:
+  - 'slave_io_running'
+  - 'slave_lag'
+  - 'slave_sql_running'
 apache::default_ssl_vhost: true
 apache::mod::php::php_version: '7'
 apache::mod::php::path: 'modules/libphp73.so'
