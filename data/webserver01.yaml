@@ -147,3 +147,10 @@ letsencrypt::certonly:
     plugin : 'webroot'
     webroot_paths:
       - '/var/www/sites/eolcentos6.com'
+  'warrenfire.org':
+    domains:
+      - www.warrenfire.org
+      - warrenfire.org
+    plugin: 'webroot'
+    webroot_paths:
+      - '/var/www/sites/warrenfire.org'
