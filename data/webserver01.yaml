@@ -118,6 +118,8 @@ apache::vhost:
     docroot      : '/var/www/sites/warrenfire.org'
     override     : 'all'
     ssl          : true
+    ssl_cert  : '/etc/letsencrypt/live/warrenfire.org/fullchain.pem'
+    ssl_key   : '/etc/letsencrypt/live/warrenfire.org/privkey.pem'
   'warrenfire.org':
     servername: 'warrenfire.org'
     serveraliases :
