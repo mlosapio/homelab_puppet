@@ -1,16 +1,3 @@
 
-firewall_rules_specific:
-  allow_radarr:
-    name: "200 Allow radarr"
-    chain: INPUT
-    proto: tcp
-    dport: 7878
-    source: '0.0.0.0/0'
-    action: accept
-  allow_sonarr:
-    name: "201 Allow sonarr"
-    chain: INPUT
-    proto: tcp
-    dport: 8989
-    source: '0.0.0.0/0'
-    action: accept
+firewall::purge: false
+firewallchain::purge: false
