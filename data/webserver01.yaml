@@ -87,6 +87,8 @@ apache::mod::php::path: 'modules/libphp73.so'
 apache::vhost:
   'mike.losap.io-ssl':
     servername: 'mike.losap.io'
+    serveraliases:
+      - losap.io
     port      : '443'
     docroot   : '/var/www/sites/mike.losap.io'
     ssl       : true
@@ -143,6 +145,7 @@ letsencrypt::certonly:
   'mike.losap.io':
     domains:
       - mike.losap.io
+      - losap.io
     plugin : 'webroot'
     webroot_paths:
       - '/var/www/sites/mike.losap.io'
