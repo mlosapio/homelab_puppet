@@ -97,6 +97,8 @@ apache::vhost:
     ssl_key   : '/etc/letsencrypt/live/mike.losap.io/privkey.pem'
   'mike.losap.io':
     servername: 'mike.losap.io'
+    serveraliases:
+      - losap.io
     port      : '80'
     docroot   : '/var/www/sites/mike.losap.io'
     override  : 'all'
