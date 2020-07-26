@@ -59,7 +59,7 @@ ntp::restrict:
 
 ssh::permit_root_login                : 'yes'
 ssh::purge_keys                       : 'no'
-ssh::sshd_allow_tcp_forwarding        : 'no'
+ssh::sshd_allow_tcp_forwarding        : 'yes'
 ssh::sshd_authorized_keys_command     : '/usr/bin/sss_ssh_authorizedkeys'
 ssh::sshd_authorized_keys_command_user: 'nobody'
 ssh::sshd_config_challenge_resp_auth  : 'yes'
