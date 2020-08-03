@@ -101,10 +101,6 @@ ssh::ssh_config_ciphers:
   - 'aes128-ctr'
   - 'aes192-ctr'
   - 'aes256-ctr'
-  - 'aes128-cbc'
-  - '3des-cbc'
-  - 'aes192-cbc'
-  - 'aes256-cbc'
 ssh::ssh_config_macs:
   - 'hmac-sha2-512'
   - 'hmac-sha2-256'
