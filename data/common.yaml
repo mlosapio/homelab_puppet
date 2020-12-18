@@ -162,9 +162,9 @@ firewall_rules_common:
 
 dnsclient::nameservers:
     - 10.8.0.30
+    - 10.8.0.171
 
 dnsclient::domain: 'losap.local'
-
 
 yum::managed_repos:
   - CentOS-Base
