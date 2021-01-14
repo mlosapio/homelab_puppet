@@ -4,6 +4,8 @@ classes:
 
 nagios::params::nrpe_options: '-t 30'
 
+nagios::server::plugin_slack: true
+
 firewall_rules_specific:
   deny_vpn:
     name   : "004 deny VPN"
