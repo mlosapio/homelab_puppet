@@ -19,3 +19,19 @@ firewall_rules_specific:
     dport: 80
     source: '10.0.0.0/8'
     action: accept
+
+nagios_contact:
+  slack: 
+    alias                        : 'Slack'
+    service_notification_period  : '24x7'
+    host_notification_period     : '24x7'
+    service_notification_options : 'w,u,c,r'
+    host_notification_options    : 'd,r'
+    service_notification_commands: 'notify-service-by-slack'
+    host_notification_commands   : 'notify-host-by-slack'
+
+nagios_command:
+  notify-service-by-slack:
+    command_line: '$USER1$/slack_nagios -field slack_channel=#exads-monitoring-nagios -field HOSTALIAS="$HOSTNAME$" -field SERVICEDESC="$SERVICEDESC$" -field SERVICESTATE="$SERVICESTATE$" -field SERVICEOUTPUT="$SERVICEOUTPUT$" -field NOTIFICATIONTYPE="$NOTIFICATIONTYPE$"'
+  notify-host-by-slack:
+    command_line: '$USER1$/slack_nagios -field slack_channel=#exads-monitoring-nagios -field HOSTALIAS="$HOSTNAME$" -field HOSTSTATE="$HOSTSTATE$" -field HOSTOUTPUT="$HOSTOUTPUT$" -field NOTIFICATIONTYPE="$NOTIFICATIONTYPE$"'
