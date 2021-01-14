@@ -2,6 +2,9 @@
 classes:
   - nagios::server 
 
+packages::install: 
+  - nagios-plugins-http
+
 nagios::params::nrpe_options: '-t 30'
 
 nagios::server::plugin_slack: true
