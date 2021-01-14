@@ -5,6 +5,9 @@ classes:
 nagios::params::nrpe_options: '-t 30'
 
 nagios::server::plugin_slack: true
+nagios::server::admin_members:
+  - nagiosadmin
+  - slack
 
 firewall_rules_specific:
   deny_vpn:
