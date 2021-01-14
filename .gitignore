@@ -6,3 +6,4 @@ Puppetfile.lock
 /keyrings/live/pubring.kbx~
 /keyrings/live/secring.gpg
 /data/radius_secure.yaml
+/data/recon_secure.yaml
