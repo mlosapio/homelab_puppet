@@ -28,6 +28,12 @@ create_resources('nagios::check', $nagios_check)
 $nagios_config = hiera('nagios::client::config', {})
 create_resources('nagios::client::config', $nagios_config)
 
+$nagios_contact = hiera('nagios_contact', {})
+create_resources('nagios_contact', $nagios_contact)
+
+nagios_command = hiera('nagios_command', {})
+create_resources('nagios_command', $nagios_command)
+
 $nfs_exports = hiera('nfs::server::export', {})
 create_resources('nfs::server::export', $nfs_exports)
 
