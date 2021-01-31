@@ -1,0 +1,11 @@
+firewall_rules_specific:
+  allow_avahi_high:
+    name: "200 Allow avahi on ens192" 
+    chain: INPUT
+    iniface: ens192
+    action: accept
+  allow_avahi_log:
+    name: "200 Allow avahi on en19"
+    chain: INPUT
+    iniface: en19
+    action: accept
