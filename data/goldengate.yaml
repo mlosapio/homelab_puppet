@@ -1,13 +1,6 @@
 firewall_rules_specific:
-  allow_avahi_high:
-    name: "200 Allow avahi on ens192" 
+  allow_avahi:
+    name: "200 Allow avahi-relay" 
     chain: INPUT
     proto: all 
-    iniface: ens192
-    action: accept
-  allow_avahi_log:
-    name: "200 Allow avahi on en19"
-    chain: INPUT
-    proto: all 
-    iniface: en19
     action: accept
