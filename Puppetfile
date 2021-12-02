@@ -72,7 +72,7 @@ mod 'puppet-dnscrypt',
 mod 'puppetlabs-limits',
   :git => 'https://github.com/puppetlabs/puppetlabs-limits.git'
 
-mod 'puppet-letsencrypt', '5.0.0'
+mod 'puppet-letsencrypt', '6.0.0'
 
 mod 'puppet-dnscryptproxy',
   :git => 'https://github.com/mlosapio/puppet-dnscryptproxy.git'
