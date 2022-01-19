@@ -8,10 +8,11 @@ packages::install:
 
 nagios::params::nrpe_options: '-t 30'
 
+nagios::pnp4nagios::perflog: '/var/lib/pnp4nagios/service_perfdata'
 nagios::server::plugin_slack: true
 nagios::server::admins_members: 'nagiosadmin, slack'
 nagios::server::process_performance_data: 1
-nagios::server::service_perfdata_file: '/var/log/pnp4nagios/service_perfdata'
+nagios::server::service_perfdata_file: '/var/lib/pnp4nagios/service_perfdata'
 nagios::server::service_perfdata_file_template: '$LASTSERVICECHECK$||$HOSTNAME$||$SERVICEDESC$||$SERVICEOUTPUT$||$SERVICEPERFDATA$'
 nagios::server::service_perfdata_file_processing_interval: 30
 nagios::server::service_perfdata_file_processing_command: 'process-service-perfdata-pnp4nagios'
