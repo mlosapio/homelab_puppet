@@ -8,7 +8,7 @@ packages::install:
 nagios::params::nrpe_options: '-t 30'
 
 nagios::nagiosgraph::perflog: '/var/log/nagios/service_perfdata.log'
-nagios::nagiosgraph::nagios_service_action_url: '/nagiosgraph/cgi-bin/show.cgi?host=$HOSTNAME$&service=$SERVICEDESC$\' onMouseOver=\'showGraphPopup(this)\' onMouseOut=\'hideGraphPopup()\' rel=\'/nagiosgraph/cgi-bin/showgraph.cgi?host=$HOSTNAME$&service=$SERVICEDESC$'
+nagios::nagiosgraph::nagios_service_action_url: "/nagiosgraph/cgi-bin/show.cgi?host=$HOSTNAME$&service=$SERVICEDESC$\' onMouseOver=\'showGraphPopup(this)\' onMouseOut=\'hideGraphPopup()\' rel=\'/nagiosgraph/cgi-bin/showgraph.cgi?host=$HOSTNAME$&service=$SERVICEDESC$"
 nagios::nagiosgraph::ssi: true
 
 nagios::server::plugin_slack: true
