@@ -121,8 +121,7 @@ ssh::keys:
     ensure: present
     user  : root
     type  : rsa
-    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDXF7h3nIgheg+3zX6dmtkNtQwlKT8TrpX2ry8a68QVaG4GuMGj+htNzzWBvZKDtyVVeLE5NscAqVxjYs3ruZ++1JeBu57E3vSx6V9zSDgDTrpgP64INrPQ1bcmtW+NHu9obXhbD2grcOKAqw8e3JITwLkofJr4c4Whjay7WKJsI/Ot2jnkigkcQrRTBu+M/n5CQ7bl0VUYggiond6aPeXrf7ZwiFVAqhZAa7F/0f4IRHg4vxk9ZQG35Qei6i1FU3UvKac0QqOXbIBz0z7/7QSuuZiSDkgajos6fteU6p7/y2OYRpJv6BLqmJTq2aSPpVrH2Kpz+KdRT35e1S6EpbYl'
-
+    key   : 'AAAAB3NzaC1yc2EAAAADAQABAAACAQDQQtQI0hk6PMcd+54w8fE+S2DE/eLirzhpFXRmZPfsdgIyiSf4Q9HZGXlSLhg1oltkxdbVJmSHQGASssvKObm96b0ZXTUfosGLqqwVVYy8d8VvKiEueU2QKbOIt2kAJAEURqPqzzNCEtAMIahCLteCkDlNZgtQkNVtk9z/Jptx6XzXJYw2tG7oY4C8TCPazqt7fY5NvzGCjonA66yQ0nhagDctCxxiYPi8FR5WCrbs8AUV5L87NmW52zTaf0fW9jjf/QUlgJ0a/uYvnaXGNK+DqWPSikfz7LDkYwsatgcPSAmGm7WXs5+n0ZVSuJeGqsfD8wCeyooon942DH14GPM0gfw3FtqJiwLhYtrF2AlCTKeGoq68SmYNn5RzbDPzz2PZATMABGMlGAJovAwWTIOSUWLpKKowAKRlcK5JdKbTVS/bHeGuB18zZDykeSqC4LV41/FMRSyEdGkp/TwkSa2Gw3KYNVWU+CTIu7JqL39eGRGeh7cPX3xJXAneRhKYhSvgvCeW5ots3+PeJZw+Cypt++fvpnX0inO+F44WiCfT9f+TK/vxhs8f/lb5BcN/kY8QWbeKHAnsFTIjmCT5rXJDOB27gS2Rh51GdJc03JYoXHg4cR1Vf8kkAK8GzRF4e7zJpPH87Wfvd8e9p/y+m4XQO1PXFQRDaFhuoBlmtnHdEQ=='
 firewall_rules_common:
   allow_incoming_ICMP:
     name  : "000 Allow all incoming pings"
