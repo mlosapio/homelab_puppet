@@ -187,6 +187,7 @@ packages::install:
 
 nagios::client::config::host_address: 'recon.losap.local'
 nagios::client::nrpe_allowed_hosts: '127.0.0.1,recon.losap.local,100.64.0.3'
+nagios::client::service_use: 'generic-service,nagiosgraph-service'
 
 ## Disable these globally
 nagios::check::httpd::ensure: 'absent'
