@@ -1,6 +1,7 @@
 ## Recon is nagios server
 classes:
   - nagios::server 
+  - nagios::nagiosgraph
 
 packages::install: 
   - nagios-plugins-http
