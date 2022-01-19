@@ -11,10 +11,10 @@ nagios::params::nrpe_options: '-t 30'
 nagios::server::plugin_slack: true
 nagios::server::admins_members: 'nagiosadmin, slack'
 nagios::server::process_performance_data: 1
-nagios::server::service_perfdata_file: '/var/log/nagios/service_perfdata.log'
+nagios::server::service_perfdata_file: '/var/log/pnp4nagios/service_perfdata'
 nagios::server::service_perfdata_file_template: '$LASTSERVICECHECK$||$HOSTNAME$||$SERVICEDESC$||$SERVICEOUTPUT$||$SERVICEPERFDATA$'
 nagios::server::service_perfdata_file_processing_interval: 30
-nagios::server::service_perfdata_file_processing_command: 'process-service-perfdata-nagiosgraph'
+nagios::server::service_perfdata_file_processing_command: 'process-service-perfdata-pnp4nagios'
 
 
 firewall_rules_specific:
