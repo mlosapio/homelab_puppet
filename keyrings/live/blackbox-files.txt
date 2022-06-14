@@ -1,2 +1,1 @@
-data/radius_secure.yaml
 data/recon_secure.yaml
