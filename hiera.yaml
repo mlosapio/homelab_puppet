@@ -11,5 +11,7 @@ hierarchy:
     path: "%{hostname}.yaml"
   - name: "per platform"
     path: "%{virtual}.yaml"
+  - name: "per os"
+    path: "%{os.family}.yaml"
   - name: "generic"
     path: "common.yaml"

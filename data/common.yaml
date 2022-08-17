@@ -4,8 +4,6 @@ classes:
   - dnsclient
   - hosts
   - logrotate
-  - network
-  - network::hiera
   - ntp
   - packages::manage
   - profile::fw
