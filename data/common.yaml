@@ -12,7 +12,6 @@ classes:
   - sudo
   - sudo::configs
   - sysctl::base
-  - yum
   - timezone
   - nagios::client
   - limits
