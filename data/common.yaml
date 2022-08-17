@@ -168,19 +168,6 @@ yum::managed_repos:
   - epel
   - extras
 
-packages::remove:
-  - NetworkManager-wifi
-  - NetworkManager-team
-  - NetworkManager-tui
-  - NetworkManager
-
-packages::install:
-  - bind-utils
-  - epel-release
-  - haveged
-  - nagios-plugins-ntp
-  - net-tools
-
 nagios::client::config::host_address: 'recon.losap.local'
 nagios::client::nrpe_allowed_hosts: '127.0.0.1,recon.losap.local,100.64.0.3'
 nagios::client::service_use: 'generic-service,pnp4nagios-service'

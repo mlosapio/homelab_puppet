@@ -2,3 +2,16 @@ classes:
   - network
   - yum
   - network::hiera
+
+packages::remove:
+  - NetworkManager-wifi
+  - NetworkManager-team
+  - NetworkManager-tui
+  - NetworkManager
+
+packages::install:
+  - bind-utils
+  - epel-release
+  - haveged
+  - nagios-plugins-ntp
+  - net-tools
