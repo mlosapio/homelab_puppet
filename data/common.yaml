@@ -33,13 +33,6 @@ rsyslog::client::log_local_custom:
 rsyslog::umask                            : '0022'
 
 sysctl::base::purge: true
-sysctl::base::values:
-  net.ipv6.conf.ens192.disable_ipv6:
-    value: '1'
-  net.ipv6.conf.all.disable_ipv6:
-    value: '0'
-  net.ipv6.conf.lo.disable_ipv6:
-    value: '0'
 
 ntp::disable_monitor: false
 ntp::iburst_enable: true

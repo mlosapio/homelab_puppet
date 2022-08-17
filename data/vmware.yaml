@@ -1,5 +1,0 @@
-network::if_dynamic:
-    'ens192':
-      ensure: 'up'
-      dhcp_hostname: "%{fqdn}"
-      defroute: 'yes'
