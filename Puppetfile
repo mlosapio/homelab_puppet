@@ -5,9 +5,9 @@ mod 'puppetserver',
 
 mod 'puppetlabs-puppetdb', '7.1.0'
 
-#mod 'ghoneycutt-ssh',
-#  :git => 'https://github.com/ComputerScienceHouse/puppet-module-ssh.git',
-#  :commit => '2ace23323332ab335c06ecb9ceb4b4c3d91810f1'
+mod 'ghoneycutt-ssh',
+  :git => 'https://github.com/ComputerScienceHouse/puppet-module-ssh.git',
+  :commit => '2ace23323332ab335c06ecb9ceb4b4c3d91810f1'
 
 mod 'puppetlabs-firewall'
 
@@ -22,9 +22,9 @@ mod 'ghoneycutt-dnsclient', '3.5.2'
 
 mod 'chrekh-hosts', '2.3.1'
 
-mod 'thias-sysctl', '1.0.6'
+#mod 'thias-sysctl', '1.0.6'
 
-mod 'puppet-yum', '3.1.0' 
+mod 'puppet-yum'
 
 mod 'rmueller-cron', '1.0.0'
 
@@ -32,9 +32,9 @@ mod 'jorritfolmer-splunk', '3.7.0'
 
 mod 'saz-sudo', '5.0.0'
 
-## This one is not very popular - should find something better
-#mod 'predicador37/packages',
-#  :git => 'https://github.com/predicador37/puppet-packages.git'
+# This one is not very popular - should find something better
+mod 'predicador37/packages',
+  :git => 'https://github.com/predicador37/puppet-packages.git'
 
 mod 'puppetlabs-accounts', '1.3.0'
 
@@ -59,17 +59,17 @@ mod 'thias-php', '1.2.2'
 mod 'thias-selinux', '1.0.6'
 
 # webserver01
-mod 'puppetlabs-apache', '5.4.0'
+#mod 'puppetlabs-apache', '5.4.0'
 
-mod 'derdanne-nfs', '2.1.2'
+#mod 'derdanne-nfs', '2.1.2'
 
 mod 'puppet-dnscrypt',
   :git => 'https://github.com/mlosapio/puppet-dnscrypt.git'
 
-mod 'puppetlabs-limits',
-  :git => 'https://github.com/puppetlabs/puppetlabs-limits.git'
+#mod 'puppetlabs-limits',
+#  :git => 'https://github.com/puppetlabs/puppetlabs-limits.git'
 
-mod 'puppet-letsencrypt', '6.0.0'
+#mod 'puppet-letsencrypt', '6.0.0'
 
 mod 'puppet-dnscryptproxy',
   :git => 'https://github.com/mlosapio/puppet-dnscryptproxy.git'
