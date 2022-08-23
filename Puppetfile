@@ -9,9 +9,9 @@ mod 'ghoneycutt-ssh',
   :git => 'https://github.com/ComputerScienceHouse/puppet-module-ssh.git',
   :commit => '2ace23323332ab335c06ecb9ceb4b4c3d91810f1'
 
-mod 'puppetlabs-firewall', '1.11.0'
+mod 'puppetlabs-firewall'
 
-mod 'puppetlabs-ntp', '7.0.0'
+mod 'puppetlabs-ntp'
 
 mod 'saz-rsyslog',
   :git => 'https://github.com/mlosapio/puppet-rsyslog.git' 
@@ -35,9 +35,6 @@ mod 'saz-sudo', '5.0.0'
 ## This one is not very popular - should find something better
 mod 'predicador37/packages',
   :git => 'https://github.com/predicador37/puppet-packages.git'
-
-mod 'jgazeley-freeradius', 
-  :git => 'https://github.com/mlosapio/puppet-freeradius.git'
 
 mod 'puppetlabs-accounts', '1.3.0'
 
@@ -63,8 +60,6 @@ mod 'thias-selinux', '1.0.6'
 
 # webserver01
 mod 'puppetlabs-apache', '5.4.0'
-
-mod 'WhatsARanjit-plexmediaserver', '2.2.0'
 
 mod 'derdanne-nfs', '2.1.2'
 
