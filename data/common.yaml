@@ -1,5 +1,4 @@
 classes:
-  - clamav
   - cron
   - dnsclient
   - hosts
