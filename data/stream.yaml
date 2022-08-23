@@ -1,0 +1,26 @@
+
+firewall_rules_specific:
+  allow_plex:
+    name: "200 Allow ACCESS TO PLEX"
+    chain: INPUT
+    proto: tcp
+    dport: 32400
+    source: '0.0.0.0/0'
+    action: accept
+  allow_high_security:
+    name: "200 Allow ACCESS from HIGH zone"
+    chain: INPUT
+    source: '10.8.0.0/24'
+    action: accept
+  allow_arr_from_same_zone_tcp:
+    name: "205 Allow access from ARR tcp"
+    chain: INPUT
+    proto: tcp
+    source: '10.250.0.37/32'
+    action: accept
+  allow_arr_from_same_zone_udp:
+    name: "205 Allow access from ARR udp"
+    chain: INPUT
+    proto: udp
+    source: '10.250.0.37/32'
+    action: accept
