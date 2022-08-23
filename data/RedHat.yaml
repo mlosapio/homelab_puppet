@@ -16,3 +16,5 @@ packages::install:
   - haveged
   - nagios-plugins-ntp
   - net-tools
+
+timezone::timezone: 'UTC'
