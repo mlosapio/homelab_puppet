@@ -33,8 +33,8 @@ mod 'jorritfolmer-splunk', '3.7.0'
 mod 'saz-sudo', '5.0.0'
 
 ## This one is not very popular - should find something better
-mod 'predicador37/packages',
-  :git => 'https://github.com/predicador37/puppet-packages.git'
+#mod 'predicador37/packages',
+#  :git => 'https://github.com/predicador37/puppet-packages.git'
 
 mod 'puppetlabs-accounts', '1.3.0'
 
