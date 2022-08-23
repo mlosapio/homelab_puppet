@@ -52,8 +52,7 @@ mod 'puppet_local_rsyslog',
   :git => 'https://github.com/mlosapio/puppet_local_rsyslog.git'
 
 ## All this for nagios
-mod 'thias-nagios',
-  :git => 'https://github.com/mlosapio/puppet-nagios.git'
+mod 'thias-nagios'
 mod 'thias-apache_httpd', '1.0.0'
 mod 'thias-php', '1.2.2'
 mod 'thias-selinux', '1.0.6'
