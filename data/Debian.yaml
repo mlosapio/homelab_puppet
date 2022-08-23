@@ -1,3 +1,3 @@
 timezone::timezone: 'Etc/UTC'
 
-nagios::check::cpu_temp: lm-sensors
+nagios::check::cpu_temp::package: lm-sensors
