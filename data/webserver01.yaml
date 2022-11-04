@@ -59,7 +59,7 @@ firewall_rules_specific:
     name   : '200 Allow NRPE from tunnel'
     chain  : INPUT
     dport  : 5666
-    source : '100.64.0.3/32'
+    source : '100.64.1.3/32'
     proto  : tcp
     action : accept
   allow_http:
@@ -75,7 +75,7 @@ firewall_rules_specific:
 
 nagios::client::config:
   'host_address': 
-    value: '100.64.0.1'
+    value: '100.64.1.1'
 
 nagios::check::mysql_health::modes_disabled:
   - 'slave_io_running'
