@@ -44,6 +44,13 @@ sudo::configs:
     'content' : 'centos ALL=(ALL)     NOPASSWD: ALL'
 
 firewall_rules_specific:
+  all_masq:
+    name    : "100 Allow masq"
+    chain   : POSTROUTING
+    jump    : MASQUERADE
+    proto   : all
+    outiface: eth0 
+    table   : nat
   allow_tinc_tcp:
     name   : "200 Allow TINC VPN TCP"
     chain  : INPUT
