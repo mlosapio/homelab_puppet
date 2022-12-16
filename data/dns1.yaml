@@ -1,6 +1,9 @@
 classes:
   - dnscryptproxy
 
+firewall::purge: false
+firewallchain::purge: false
+
 firewall_rules_specific:
   allow_dns_tcp:
     name: "200 Allow ACCESS TO DNS tcp"

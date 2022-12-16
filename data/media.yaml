@@ -1,5 +1,4 @@
 classes:
-  - plexmediaserver 
   - nfs
 
 nfs::server_enabled: true
@@ -8,31 +7,12 @@ nfs::server::export:
         ensure: 'mounted'
         clients: '10.250.0.37/32(rw,sync,no_root_squash,insecure)'
 
-plexmediaserver::plex_url: 'https://downloads.plex.tv/plex-media-server-new/1.24.3.5033-757abe6b4/redhat/'
-plexmediaserver::plex_pkg: 'plexmediaserver-1.24.3.5033-757abe6b4.x86_64.rpm'
+firewall::purge: false
+firewallchain::purge: false
 
 firewall_rules_specific:
-  allow_plex:
-    name: "200 Allow ACCESS TO PLEX"
-    chain: INPUT
-    proto: tcp
-    dport: 32400
-    source: '0.0.0.0/0'
-    action: accept
   allow_high_security:
     name: "200 Allow ACCESS from HIGH zone"
     chain: INPUT
     source: '10.8.0.0/24'
-    action: accept
-  allow_arr_from_same_zone_tcp:
-    name: "205 Allow access from ARR tcp"
-    chain: INPUT
-    proto: tcp
-    source: '10.250.0.37/32'
-    action: accept
-  allow_arr_from_same_zone_udp:
-    name: "205 Allow access from ARR udp"
-    chain: INPUT
-    proto: udp
-    source: '10.250.0.37/32'
     action: accept
