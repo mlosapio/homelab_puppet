@@ -45,3 +45,9 @@ create_resources('apache::vhost', $apache_vhosts)
 
 $letsencrypt_certs = hiera('letsencrypt::certonly', {})
 create_resources('letsencrypt::certonly', $letsencrypt_certs)
+
+$firewall = hiera('firewall' ()}
+create_resources('firewall', $firewall)
+
+$firewallchain = hiera('firewallchain' ()}
+create_resources('firewall', $firewallchain)
