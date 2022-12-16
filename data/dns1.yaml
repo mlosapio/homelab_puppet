@@ -1,8 +1,7 @@
 classes:
   - dnscryptproxy
 
-firewall::purge: false
-firewallchain::purge: false
+profile::fw::purge: false
 
 firewall_rules_specific:
   allow_dns_tcp:

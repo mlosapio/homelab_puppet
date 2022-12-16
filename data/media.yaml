@@ -7,8 +7,7 @@ nfs::server::export:
         ensure: 'mounted'
         clients: '10.250.0.37/32(rw,sync,no_root_squash,insecure)'
 
-firewall::purge: false
-firewallchain::purge: false
+profile::fw::purge: false
 
 firewall_rules_specific:
   allow_high_security:
