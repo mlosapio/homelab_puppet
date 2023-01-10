@@ -128,16 +128,16 @@ apache::vhost:
     port      : '80'
     override  : 'all'
     docroot   : '/var/www/sites/warrenfire.org'
-  'eolcentos7.com-ssl':
-    servername   : 'eolcentos7.com'
-    serveraliases: 
-      - www.eolcentos7.com
-    port         : '443'
-    docroot      : '/var/www/sites/eolcentos7.com'
-    ssl          : true
-    ssl_cert  : '/etc/letsencrypt/live/eolcentos7.com/fullchain.pem'
-    ssl_key   : '/etc/letsencrypt/live/eolcentos7.com/privkey.pem'
-  'eolcentos6.com':
+#  'eolcentos7.com-ssl':
+#    servername   : 'eolcentos7.com'
+#    serveraliases: 
+#      - www.eolcentos7.com
+#    port         : '443'
+#    docroot      : '/var/www/sites/eolcentos7.com'
+#    ssl          : true
+#    ssl_cert  : '/etc/letsencrypt/live/eolcentos7.com/fullchain.pem'
+#    ssl_key   : '/etc/letsencrypt/live/eolcentos7.com/privkey.pem'
+  'eolcentos7.com':
     servername: 'eolcentos7.com'
     serveraliases : 
       - www.eolcentos7.com
