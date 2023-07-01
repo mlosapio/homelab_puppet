@@ -6,8 +6,7 @@ mod 'puppetserver',
 #mod 'puppetlabs-puppetdb'
 
 mod 'ghoneycutt-ssh',
-  :git => 'https://github.com/ComputerScienceHouse/puppet-module-ssh.git',
-  :commit => '2ace23323332ab335c06ecb9ceb4b4c3d91810f1'
+  :git => 'https://github.com/ghoneycutt/puppet-module-ssh.git'
 
 mod 'puppetlabs-firewall'
 
