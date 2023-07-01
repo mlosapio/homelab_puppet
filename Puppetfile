@@ -3,7 +3,7 @@ forge "https://forgeapi.puppetlabs.com"
 mod 'puppetserver',
   :git => 'https://github.com/gutocarvalho/puppet-puppetserver.git'
 
-mod 'puppetlabs-puppetdb'
+#mod 'puppetlabs-puppetdb'
 
 mod 'ghoneycutt-ssh',
   :git => 'https://github.com/ComputerScienceHouse/puppet-module-ssh.git',
