@@ -5,8 +5,7 @@ mod 'puppetserver',
 
 #mod 'puppetlabs-puppetdb'
 
-mod 'ghoneycutt-ssh',
-  :git => 'https://github.com/ghoneycutt/puppet-module-ssh.git'
+mod 'ghoneycutt-ssh'
 
 mod 'puppetlabs-firewall'
 
