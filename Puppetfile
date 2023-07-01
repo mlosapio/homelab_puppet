@@ -1,4 +1,4 @@
-forge "https://forgeapi.puppetlabs.com" 
+forge "https://forgeapi.puppetlabs.com"
 
 mod 'puppetserver',
   :git => 'https://github.com/gutocarvalho/puppet-puppetserver.git'
@@ -12,17 +12,17 @@ mod 'puppetlabs-firewall'
 mod 'puppetlabs-ntp'
 
 mod 'saz-rsyslog',
-  :git => 'https://github.com/mlosapio/puppet-rsyslog.git' 
+  :git => 'https://github.com/mlosapio/puppet-rsyslog.git'
 
-mod 'razorsedge-network'
+#mod 'razorsedge-network'
 
 mod 'ghoneycutt-dnsclient'
 
 mod 'chrekh-hosts'
 
-#mod 'thias-sysctl'
+mod 'thias-sysctl'
 
-mod 'puppet-yum'
+mod 'puppet-yum', '6.2.0'
 
 mod 'rmueller-cron'
 
@@ -31,8 +31,8 @@ mod 'jorritfolmer-splunk', '3.7.0'
 mod 'saz-sudo'
 
 # This one is not very popular - should find something better
-mod 'predicador37/packages',
-  :git => 'https://github.com/predicador37/puppet-packages.git'
+#mod 'predicador37/packages',
+#  :git => 'https://github.com/predicador37/puppet-packages.git'
 
 mod 'puppetlabs-accounts'
 
@@ -63,10 +63,10 @@ mod 'thias-selinux'
 mod 'puppet-dnscrypt',
   :git => 'https://github.com/mlosapio/puppet-dnscrypt.git'
 
-#mod 'puppetlabs-limits',
-#  :git => 'https://github.com/puppetlabs/puppetlabs-limits.git'
+mod 'puppetlabs-limits',
+  :git => 'https://github.com/puppetlabs/puppetlabs-limits.git'
 
-#mod 'puppet-letsencrypt'
+mod 'puppet-letsencrypt'
 
 mod 'puppet-dnscryptproxy',
   :git => 'https://github.com/mlosapio/puppet-dnscryptproxy.git'
